@@ -113,7 +113,7 @@ export default function HeroSection({ onBookDemo }) {
           <div>
             {/* Brand lockup */}
             <div style={{ marginBottom: 32 }}>
-              <p style={{ fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0, fontWeight: 500, background: 'linear-gradient(90deg, #b45309, #f59e0b, #fcd34d, #f97316, #fcd34d, #f59e0b, #b45309)', backgroundSize: '200% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'shimmer 3s linear infinite' }}>
+              <p style={{ fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0, fontWeight: 500, background: 'linear-gradient(90deg, #818cf8, #c084fc, #60a5fa, #c084fc, #818cf8)', backgroundSize: '200% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'shimmer 7s linear infinite' }}>
                 The new verse of market intelligence
               </p>
             </div>
