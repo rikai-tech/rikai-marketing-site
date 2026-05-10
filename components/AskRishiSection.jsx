@@ -68,7 +68,7 @@ export default function AskRishiSection() {
               Designed to grow with your research across languages and channels — Rishi connects the signals that matter most to your team.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 36 }}>
-              {['Surfaces context within your research data', 'Surfaces themes, not just statistics', 'Explains its reasoning, not just its findings', 'Recommends next actions based on evidence'].map((item, i) => (
+              {['Surfaces context from your research data', 'Surfaces themes, not just statistics', 'Explains its reasoning, not just its findings', 'Recommends next actions based on evidence'].map((item, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div style={{ width: 20, height: 20, borderRadius: 6, background: 'rgba(96,165,250,0.15)', border: '1px solid rgba(96,165,250,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" fill="none" /></svg>
