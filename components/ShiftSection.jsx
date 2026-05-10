@@ -15,10 +15,10 @@ export default function ShiftSection() {
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <SLabel>A Different Way of Working</SLabel>
           <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 16 }}>
-            More than a better tool.<br /><span className="gt">A fundamentally better way to work.</span>
+            Traditional tools collect feedback.<br /><span className="gt">Rik AI operationalizes understanding.</span>
           </h2>
           <p className="fu d1" style={{ fontSize: 17, color: 'var(--text-2)', maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.75 }}>
-            Traditional research tools are built around collecting data. Rik AI is built around understanding it — continuously, automatically, and in a way every team can act on.
+            Traditional research tools are built to collect data. Rik AI is built to continuously interpret it — automatically transforming signals into intelligence every team can act on.
           </p>
           <div className="fu d2" style={{ margin: '0 auto 48px', maxWidth: 720, padding: '28px 40px', background: 'linear-gradient(135deg, rgba(124,58,237,0.1), rgba(79,110,247,0.07))', borderRadius: 16, border: '1px solid rgba(124,58,237,0.22)' }}>
             <p style={{ fontFamily: 'var(--fh)', fontSize: 22, fontWeight: 700, color: 'var(--text-1)', textAlign: 'center', lineHeight: 1.4, margin: 0 }}>
