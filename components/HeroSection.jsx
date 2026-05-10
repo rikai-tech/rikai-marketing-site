@@ -112,21 +112,18 @@ export default function HeroSection({ onBookDemo }) {
         <div className="container hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center', position: 'relative', zIndex: 2, padding: '80px 48px' }}>
           <div>
             {/* Brand lockup */}
-            <div style={{ marginBottom: 32 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
-                <img src="/uploads/logo_upload-1776774656314.png" style={{ height: 18, width: 'auto', opacity: 0.9 }} alt="" />
-                <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', letterSpacing: '-0.2px' }}>
-                  Rik<span className="gt">.ai</span>
-                </span>
-              </div>
-              <p style={{ fontSize: 11.5, color: 'rgba(167,139,250,0.55)', letterSpacing: '0.04em', fontStyle: 'italic', margin: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, marginBottom: 32 }}>
+              <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', letterSpacing: '-0.2px' }}>
+                Rik<span className="gt">.ai</span>
+              </span>
+              <p style={{ fontSize: 13, color: 'rgba(167,139,250,0.7)', letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0, fontWeight: 500 }}>
                 The new verse of market intelligence
               </p>
             </div>
 
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(124,58,237,0.14)', border: '1px solid rgba(124,58,237,0.28)', borderRadius: 100, marginBottom: 28 }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#a78bfa', animation: 'pulse 2s infinite' }} />
-              <span style={{ fontSize: 12, fontWeight: 700, color: '#c4b5fd', fontFamily: 'var(--fh)', letterSpacing: '0.05em' }}>Now in Early Access · Join Forward-Thinking Teams</span>
+              <span style={{ fontSize: 12, fontWeight: 700, color: '#c4b5fd', fontFamily: 'var(--fh)', letterSpacing: '0.05em' }}>Now in Early Access</span>
             </div>
 
             <h1 className="hero-h1" style={{ fontFamily: 'var(--fh)', fontWeight: 700, lineHeight: 1.1, marginBottom: 22, color: 'var(--text-1)' }}>
