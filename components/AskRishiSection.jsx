@@ -62,13 +62,13 @@ export default function AskRishiSection() {
             <p className="fu d1" style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-1)', marginBottom: 6, letterSpacing: '-0.3px' }}>Your AI research analyst — always on, always ready.</p>
             <p className="fu d2" style={{ fontSize: 14, color: '#60a5fa', fontWeight: 600, marginBottom: 10 }}>From question to insight in minutes — no waiting, no digging.</p>
             <p className="fu d3" style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.8, marginBottom: 12 }}>
-              Rishi understands every format your customers respond in — text, video, voice, and more — and synthesises them into one clear answer.
+              Ask Rishi anything about your customers. It reads your research data, surfaces themes, patterns, and signals — and returns a clear, decision-ready answer.
             </p>
             <p className="fu d4" style={{ fontSize: 12.5, color: 'var(--text-3)', lineHeight: 1.7, marginBottom: 32 }}>
-              Across languages, channels, and studies — Rishi connects the signals that matter most to your team.
+              Designed to grow with your research across languages and channels — Rishi connects the signals that matter most to your team.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 36 }}>
-              {['Understands context across multiple studies', 'Surfaces themes, not just statistics', 'Explains its reasoning, not just its findings', 'Recommends next actions based on evidence'].map((item, i) => (
+              {['Surfaces context within your research data', 'Surfaces themes, not just statistics', 'Explains its reasoning, not just its findings', 'Recommends next actions based on evidence'].map((item, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div style={{ width: 20, height: 20, borderRadius: 6, background: 'rgba(96,165,250,0.15)', border: '1px solid rgba(96,165,250,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" fill="none" /></svg>
