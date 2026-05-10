@@ -147,11 +147,6 @@ export default function HeroSection({ onBookDemo }) {
             <DashboardMockup />
           </div>
         </div>
-
-        <div style={{ position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-          <div style={{ fontSize: 11, color: 'var(--text-3)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Explore</div>
-          <div style={{ width: 1, height: 32, background: 'linear-gradient(to bottom, rgba(124,58,237,0.5), transparent)' }} />
-        </div>
       </section>
       <CredibilityStrip />
     </>
