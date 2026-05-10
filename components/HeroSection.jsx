@@ -126,7 +126,7 @@ export default function HeroSection({ onBookDemo }) {
             </p>
             <p style={{ fontSize: 13, color: 'rgba(167,139,250,0.65)', marginBottom: 40, letterSpacing: '0.02em' }}>A new era of customer understanding.</p>
 
-            <div className="hero-ctas" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 52 }}>
+            <div className="hero-ctas" style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <button onClick={() => onBookDemo()} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 15, padding: '14px 30px', borderRadius: 12, boxShadow: '0 0 40px rgba(124,58,237,0.5)', transition: 'transform 0.2s, box-shadow 0.2s', border: 'none', cursor: 'pointer' }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 48px rgba(124,58,237,0.65)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 40px rgba(124,58,237,0.5)'; }}
@@ -135,15 +135,6 @@ export default function HeroSection({ onBookDemo }) {
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'var(--border-md)'; }}
               >See how it works</a>
-            </div>
-
-            <div className="hero-stats" style={{ display: 'flex', gap: 40 }}>
-              {[['10K+', 'Insights delivered'], ['92%', 'Survey completion rate'], ['3×', 'Faster than traditional research']].map(([num, label]) => (
-                <div key={num}>
-                  <div style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 28, color: 'var(--text-1)', letterSpacing: '-0.5px' }}>{num}</div>
-                  <div style={{ fontSize: 12, color: 'var(--text-3)', marginTop: 2 }}>{label}</div>
-                </div>
-              ))}
             </div>
           </div>
           <div className="hero-mockup" style={{ display: 'flex', justifyContent: 'center', animation: 'float 8s ease-in-out infinite' }}>

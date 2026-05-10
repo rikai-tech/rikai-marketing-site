@@ -99,8 +99,8 @@ export default function NavBar({ onBookDemo }) {
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
 
-        {/* Sign in with dropdown */}
-        <div ref={dropdownRef} style={{ position: 'relative' }}>
+        {/* Sign in with dropdown — hidden on mobile */}
+        <div ref={dropdownRef} className="nav-desktop-only" style={{ position: 'relative' }}>
           <button
             onClick={() => setSignInOpen(o => !o)}
             style={{
@@ -202,7 +202,8 @@ export default function NavBar({ onBookDemo }) {
           )}
         </div>
 
-        <button onClick={() => onBookDemo()} style={{
+        {/* Desktop CTA — hidden on mobile */}
+        <button className="nav-desktop-only" onClick={() => onBookDemo()} style={{
           background: 'var(--grad)', color: '#fff',
           fontFamily: 'var(--fh)', fontWeight: 600, fontSize: '14px',
           padding: '10px 22px', borderRadius: '10px',
