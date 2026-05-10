@@ -35,7 +35,7 @@ export default function ProductPreviewSection() {
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
           <SLabel>Product Preview</SLabel>
-          <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 46, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 16 }}>
+          <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 16 }}>
             Two portals.<br /><span className="gt">One seamless system.</span>
           </h2>
           <p className="fu d1" style={{ fontSize: 16, color: 'var(--text-2)', maxWidth: 520, margin: '0 auto 8px' }}>
@@ -43,7 +43,7 @@ export default function ProductPreviewSection() {
           </p>
           <p className="fu d2" style={{ fontSize: 13, color: 'rgba(167,139,250,0.6)', margin: '0 auto', textAlign: 'center' }}>See how decisions happen in real time.</p>
         </div>
-        <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginBottom: 36 }}>
+        <div className="preview-tabs" style={{ display: 'flex', gap: 8, justifyContent: 'center', marginBottom: 36, flexWrap: 'wrap' }}>
           {tabs.map((tb, i) => (
             <button key={i} onClick={() => setTab(i)} style={{ padding: '10px 22px', borderRadius: 10, border: '1px solid', cursor: 'pointer', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 14, transition: 'all 0.25s', borderColor: tab === i ? 'rgba(124,58,237,0.5)' : 'var(--border)', background: tab === i ? 'rgba(124,58,237,0.15)' : 'transparent', color: tab === i ? '#c4b5fd' : 'var(--text-2)' }}>{tb.label}</button>
           ))}
@@ -56,7 +56,7 @@ export default function ProductPreviewSection() {
             <div style={{ flex: 1, background: 'rgba(255,255,255,0.05)', borderRadius: 7, padding: '5px 14px', fontSize: 11, color: 'var(--text-3)', textAlign: 'center' }}>app.rik.ai</div>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={t.img} alt={t.label} style={{ width: '100%', display: 'block', maxHeight: 500, objectFit: 'cover', objectPosition: 'top' }} />
+          <img src={t.img} alt={t.label} style={{ width: '100%', display: 'block', maxHeight: 560, objectFit: 'cover', objectPosition: 'top center' }} />
         </div>
         <div className="preview-caption" style={{ marginTop: 32, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start' }}>
           <div>

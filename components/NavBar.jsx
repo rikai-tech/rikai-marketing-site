@@ -35,6 +35,7 @@ const PORTALS = [
 export default function NavBar({ onBookDemo }) {
   const [scrolled, setScrolled] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -212,7 +213,54 @@ export default function NavBar({ onBookDemo }) {
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 32px rgba(124,58,237,0.6)'; }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 28px rgba(124,58,237,0.45)'; }}
         >Get Started Free</button>
+
+        {/* Hamburger — visible on mobile only */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setMobileOpen(o => !o)}
+          aria-label="Toggle menu"
+          style={{ width: 40, height: 40, borderRadius: 8, background: 'rgba(255,255,255,0.06)', border: '1px solid var(--border-md)', flexDirection: 'column', gap: 5, alignItems: 'center', justifyContent: 'center' }}
+        >
+          <span style={{ display: 'block', width: 18, height: 1.5, background: mobileOpen ? 'transparent' : 'var(--text-1)', transition: 'all 0.2s', transform: mobileOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+          <span style={{ display: 'block', width: 18, height: 1.5, background: 'var(--text-1)', transition: 'all 0.2s', transform: mobileOpen ? 'rotate(-45deg)' : 'none' }} />
+          {!mobileOpen && <span style={{ display: 'block', width: 18, height: 1.5, background: 'var(--text-1)', transition: 'all 0.2s' }} />}
+        </button>
       </div>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="mobile-drawer" style={{
+          position: 'fixed', top: 68, left: 0, right: 0,
+          background: 'rgba(8,8,26,0.97)',
+          backdropFilter: 'blur(24px)',
+          borderBottom: '1px solid rgba(255,255,255,0.07)',
+          padding: '24px 24px 32px',
+          zIndex: 199,
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 24 }}>
+            {links.map(l => (
+              <a key={l.label} href={l.href} onClick={() => setMobileOpen(false)} style={{ padding: '13px 12px', borderRadius: 10, fontSize: 17, fontFamily: 'var(--fh)', fontWeight: 600, color: 'var(--text-2)', display: 'block', transition: 'background 0.15s, color 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'var(--text-1)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-2)'; }}
+              >{l.label}</a>
+            ))}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {PORTALS.map(portal => (
+              <a key={portal.key} href={portal.href} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 14px', borderRadius: 12, border: '1px solid var(--border)', background: 'rgba(255,255,255,0.03)', textDecoration: 'none' }}>
+                <div style={{ width: 34, height: 34, borderRadius: 9, background: portal.grad, border: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{portal.icon}</div>
+                <div>
+                  <div style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)' }}>{portal.label}</div>
+                  <div style={{ fontSize: 12, color: 'var(--text-3)' }}>{portal.sub}</div>
+                </div>
+              </a>
+            ))}
+            <button onClick={() => { onBookDemo(); setMobileOpen(false); }} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15, padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer', marginTop: 4, boxShadow: '0 0 28px rgba(124,58,237,0.4)' }}>
+              Get Started Free
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

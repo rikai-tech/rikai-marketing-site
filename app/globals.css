@@ -129,6 +129,14 @@ a { color: inherit; text-decoration: none; }
   padding: 0 48px;
 }
 
+/* Responsive headings */
+.hero-h1 { font-size: 52px; letter-spacing: -1.5px; }
+.section-h2 { font-size: 46px; }
+
+/* Mobile nav */
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text-1); }
+.mobile-drawer { display: none; }
+
 /* Tablet */
 @media (max-width: 900px) {
   .container { padding: 0 24px; }
@@ -138,6 +146,8 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; padding: 60px 24px !important; }
   .hero-mockup { display: none !important; }
+  .hero-h1 { font-size: 42px !important; letter-spacing: -1px !important; }
+  .section-h2 { font-size: 36px !important; letter-spacing: -0.5px !important; }
   .problem-grid { grid-template-columns: 1fr 1fr !important; }
   .caps-grid { grid-template-columns: 1fr 1fr !important; }
   .rishi-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
@@ -148,6 +158,8 @@ a { color: inherit; text-decoration: none; }
   .usecase-grid { grid-template-columns: 1fr !important; padding: 36px 32px !important; gap: 36px !important; }
   .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
   .nav-links { display: none !important; }
+  .nav-hamburger { display: flex !important; align-items: center; justify-content: center; }
+  .mobile-drawer { display: block !important; }
   .shift-table { font-size: 13px !important; }
 }
 
@@ -155,6 +167,8 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 540px) {
   .section-pad { padding: 56px 0; }
   .container { padding: 0 18px; }
+  .hero-h1 { font-size: 34px !important; letter-spacing: -0.5px !important; line-height: 1.15 !important; }
+  .section-h2 { font-size: 28px !important; letter-spacing: -0.3px !important; }
   .problem-grid { grid-template-columns: 1fr !important; }
   .caps-grid { grid-template-columns: 1fr !important; }
   .understand-grid { grid-template-columns: 1fr !important; }
@@ -168,4 +182,14 @@ a { color: inherit; text-decoration: none; }
   .cta-inputs { flex-direction: column !important; align-items: stretch !important; }
   .cta-inputs input, .cta-inputs button { width: 100% !important; }
   .footer-bottom { flex-direction: column !important; gap: 10px !important; text-align: center !important; }
+  /* Shift table: stack old/new vertically on small screens */
+  .shift-header { display: none !important; }
+  .shift-row { grid-template-columns: 1fr !important; }
+  .shift-old { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
+  .shift-old::before { content: 'Before'; display: block; font-size: 10px; font-weight: 700; color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .shift-new::before { content: 'With Rik AI'; display: block; font-size: 10px; font-weight: 700; color: #c4b5fd; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .shift-old, .shift-new { padding: 16px 20px !important; }
+  .usecase-grid { padding: 28px 20px !important; }
+  .preview-tabs { gap: 6px !important; }
+  .preview-tabs button { font-size: 13px !important; padding: 9px 16px !important; }
 }

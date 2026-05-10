@@ -18,8 +18,8 @@ export default function UseCasesSection() {
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <SLabel>Who It's For</SLabel>
-          <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 46, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15 }}>
-            Built for every team that<br /><span className="gt">needs to understand customers</span>
+          <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15 }}>
+            Built for every team that<br /><span className="gt">wants to truly understand their customers</span>
           </h2>
         </div>
         <div className="usecase-tabs" style={{ display: 'flex', gap: 8, justifyContent: 'center', marginBottom: 48, flexWrap: 'wrap' }}>

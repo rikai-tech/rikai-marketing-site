@@ -19,7 +19,7 @@ export default function PersonasSection() {
       <div className="container" style={{ position: 'relative' }}>
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <SLabel>AI Interview Personas</SLabel>
-          <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 46, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 14 }}>
+          <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 14 }}>
             The right conversation<br /><span className="gt">for every kind of question</span>
           </h2>
           <p className="fu d1" style={{ fontSize: 16, color: 'var(--text-3)', maxWidth: 520, margin: '0 auto 10px', lineHeight: 1.7 }}>

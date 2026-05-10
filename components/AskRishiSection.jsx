@@ -55,17 +55,17 @@ export default function AskRishiSection() {
           {/* Left */}
           <div>
             <SLabel color="#60a5fa">Ask Rishi</SLabel>
-            <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 44, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.1, marginBottom: 16 }}>
+            <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.1, marginBottom: 16 }}>
               Ask anything about<br />your customers.<br />
-              <span style={{ background: 'linear-gradient(135deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Get an answer in seconds.</span>
+              <span style={{ background: 'linear-gradient(135deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Get a clear answer in seconds.</span>
             </h2>
-            <p className="fu d1" style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-1)', marginBottom: 6, letterSpacing: '-0.3px' }}>No dashboards. No digging. Just answers.</p>
-            <p className="fu d2" style={{ fontSize: 14, color: '#60a5fa', fontWeight: 600, marginBottom: 10 }}>From question to insight in minutes — not weeks.</p>
+            <p className="fu d1" style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-1)', marginBottom: 6, letterSpacing: '-0.3px' }}>Your AI research analyst — always on, always ready.</p>
+            <p className="fu d2" style={{ fontSize: 14, color: '#60a5fa', fontWeight: 600, marginBottom: 10 }}>From question to insight in minutes — no waiting, no digging.</p>
             <p className="fu d3" style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.8, marginBottom: 12 }}>
-              Rishi is your AI research analyst — available instantly, fluent in every format your customers respond in.
+              Rishi understands every format your customers respond in — text, video, voice, and more — and synthesises them into one clear answer.
             </p>
             <p className="fu d4" style={{ fontSize: 12.5, color: 'var(--text-3)', lineHeight: 1.7, marginBottom: 32 }}>
-              Powered by signals across text, video, voice, languages, and behaviours.
+              Across languages, channels, and studies — Rishi connects the signals that matter most to your team.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 36 }}>
               {['Understands context across multiple studies', 'Surfaces themes, not just statistics', 'Explains its reasoning, not just its findings', 'Recommends next actions based on evidence'].map((item, i) => (

@@ -15,8 +15,8 @@ export default function CapabilitiesSection() {
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
           <SLabel>Platform Capabilities</SLabel>
-          <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 46, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 16 }}>
-            Everything needed to close<br /><span className="gt">the understanding gap</span>
+          <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 16 }}>
+            Everything your team needs<br /><span className="gt">to go from feedback to action</span>
           </h2>
         </div>
         <div className="caps-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>

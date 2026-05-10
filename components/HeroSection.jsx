@@ -1,9 +1,9 @@
 'use client';
 
 const heroVariants = {
-  A: { h1a: 'Your customers are always talking.', h1b: 'Now you can understand —', h1c: 'and act.' },
-  B: { h1a: 'Turn customer signals', h1b: 'into decisions.', h1c: 'Instantly.' },
-  C: { h1a: 'Stop analyzing data.', h1b: 'Start acting on what', h1c: 'customers tell you.' },
+  A: { h1a: 'Your customers are speaking.', h1b: 'Make sure every signal', h1c: 'becomes an action.' },
+  B: { h1a: 'Turn customer signals', h1b: 'into confident decisions.', h1c: 'Every time.' },
+  C: { h1a: 'Go beyond collecting data.', h1b: 'Understand what customers', h1c: 'are really telling you.' },
 };
 
 function DashboardMockup() {
@@ -69,17 +69,17 @@ function DashboardMockup() {
 
 export function CredibilityStrip() {
   const items = [
-    { icon: '◈', text: 'From signals to decisions — in minutes, not weeks' },
-    { icon: '✦', text: 'Understand feedback across languages and formats' },
-    { icon: '◉', text: 'No analysts required. No dashboards to maintain.' },
-    { icon: '◇', text: 'Built for messy, real-world customer data' },
+    { icon: '◈', text: 'From customer signals to confident decisions — in minutes, not weeks' },
+    { icon: '✦', text: 'Understand feedback across every language and format' },
+    { icon: '◉', text: 'AI-powered insights your whole team can act on' },
+    { icon: '◇', text: 'Works with real-world customer data, exactly as it comes' },
     { icon: '▣', text: 'From question to insight — without the wait' },
-    { icon: '◐', text: 'Text, video, voice — understood together' },
-    { icon: '▣', text: 'Built with enterprise-grade security and data protection practices' },
-    { icon: '◈', text: 'From signals to decisions — in minutes, not weeks' },
-    { icon: '✦', text: 'Understand feedback across languages and formats' },
-    { icon: '◉', text: 'No analysts required. No dashboards to maintain.' },
-    { icon: '◇', text: 'Built for messy, real-world customer data' },
+    { icon: '◐', text: 'Text, video, voice — understood together, instantly' },
+    { icon: '▣', text: 'Enterprise-grade security and privacy, built in from day one' },
+    { icon: '◈', text: 'From customer signals to confident decisions — in minutes, not weeks' },
+    { icon: '✦', text: 'Understand feedback across every language and format' },
+    { icon: '◉', text: 'AI-powered insights your whole team can act on' },
+    { icon: '◇', text: 'Works with real-world customer data, exactly as it comes' },
   ];
   return (
     <div style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '22px 0', overflow: 'hidden', background: 'rgba(255,255,255,0.012)' }}>
@@ -113,18 +113,18 @@ export default function HeroSection({ onBookDemo }) {
           <div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(124,58,237,0.14)', border: '1px solid rgba(124,58,237,0.28)', borderRadius: 100, marginBottom: 28 }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#a78bfa', animation: 'pulse 2s infinite' }} />
-              <span style={{ fontSize: 12, fontWeight: 700, color: '#c4b5fd', fontFamily: 'var(--fh)', letterSpacing: '0.05em' }}>Continuous Intelligence · Now in Early Access</span>
+              <span style={{ fontSize: 12, fontWeight: 700, color: '#c4b5fd', fontFamily: 'var(--fh)', letterSpacing: '0.05em' }}>Now in Early Access · Join Forward-Thinking Teams</span>
             </div>
 
-            <h1 style={{ fontFamily: 'var(--fh)', fontSize: heroSize, fontWeight: 700, lineHeight: 1.1, letterSpacing: '-1.5px', marginBottom: 22, color: 'var(--text-1)' }}>
+            <h1 className="hero-h1" style={{ fontFamily: 'var(--fh)', fontWeight: 700, lineHeight: 1.1, marginBottom: 22, color: 'var(--text-1)' }}>
               {variant.h1a}<br />{variant.h1b}<br />
               <span className="gt">{variant.h1c}</span>
             </h1>
 
             <p style={{ fontSize: 17.5, color: 'var(--text-2)', lineHeight: 1.75, marginBottom: 14, maxWidth: 500 }}>
-              Rik AI turns customer feedback, research, and behaviour into real-time insights and actions — for teams that need to move fast.
+              Rik AI transforms customer feedback, research, and behaviour into clear, confident decisions — across every format, language, and channel.
             </p>
-            <p style={{ fontSize: 13, color: 'rgba(167,139,250,0.65)', marginBottom: 40, letterSpacing: '0.02em' }}>The new verse of market intelligence.</p>
+            <p style={{ fontSize: 13, color: 'rgba(167,139,250,0.65)', marginBottom: 40, letterSpacing: '0.02em' }}>A new era of customer understanding.</p>
 
             <div className="hero-ctas" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 52 }}>
               <button onClick={() => onBookDemo()} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 15, padding: '14px 30px', borderRadius: 12, boxShadow: '0 0 40px rgba(124,58,237,0.5)', transition: 'transform 0.2s, box-shadow 0.2s', border: 'none', cursor: 'pointer' }}
@@ -138,7 +138,7 @@ export default function HeroSection({ onBookDemo }) {
             </div>
 
             <div className="hero-stats" style={{ display: 'flex', gap: 40 }}>
-              {[['10K+', 'Insights generated'], ['92%', 'Completion rate'], ['3×', 'Faster than traditional research']].map(([num, label]) => (
+              {[['10K+', 'Insights delivered'], ['92%', 'Survey completion rate'], ['3×', 'Faster than traditional research']].map(([num, label]) => (
                 <div key={num}>
                   <div style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 28, color: 'var(--text-1)', letterSpacing: '-0.5px' }}>{num}</div>
                   <div style={{ fontSize: 12, color: 'var(--text-3)', marginTop: 2 }}>{label}</div>

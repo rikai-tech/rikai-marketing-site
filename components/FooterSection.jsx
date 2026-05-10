@@ -45,8 +45,8 @@ export default function FooterSection() {
               <img src="/uploads/logo_upload-1776774656314.png" alt="Rik AI" style={{ height: 36 }} />
               <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 20 }}>Rik<span className="gt">.ai</span></span>
             </div>
-            <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.8, maxWidth: 240, marginBottom: 8 }}>Continuous intelligence for teams that need to understand their customers deeply and act on it decisively.</p>
-            <p style={{ fontSize: 12, color: 'rgba(167,139,250,0.4)' }}>The new verse of market intelligence.</p>
+            <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.8, maxWidth: 240, marginBottom: 8 }}>Transforming customer feedback into clear, confident action — for teams that move fast and want to understand their customers deeply.</p>
+            <p style={{ fontSize: 12, color: 'rgba(167,139,250,0.4)' }}>A new era of customer understanding.</p>
           </div>
           {cols.map(col => (
             <div key={col.title}>
