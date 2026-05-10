@@ -111,6 +111,19 @@ export default function HeroSection({ onBookDemo }) {
 
         <div className="container hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center', position: 'relative', zIndex: 2, padding: '80px 48px' }}>
           <div>
+            {/* Brand lockup */}
+            <div style={{ marginBottom: 32 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
+                <img src="/uploads/logo_upload-1776774656314.png" style={{ height: 18, width: 'auto', opacity: 0.9 }} alt="" />
+                <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', letterSpacing: '-0.2px' }}>
+                  Rik<span className="gt">.ai</span>
+                </span>
+              </div>
+              <p style={{ fontSize: 11.5, color: 'rgba(167,139,250,0.55)', letterSpacing: '0.04em', fontStyle: 'italic', margin: 0 }}>
+                The new verse of market intelligence
+              </p>
+            </div>
+
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(124,58,237,0.14)', border: '1px solid rgba(124,58,237,0.28)', borderRadius: 100, marginBottom: 28 }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#a78bfa', animation: 'pulse 2s infinite' }} />
               <span style={{ fontSize: 12, fontWeight: 700, color: '#c4b5fd', fontFamily: 'var(--fh)', letterSpacing: '0.05em' }}>Now in Early Access · Join Forward-Thinking Teams</span>
@@ -121,10 +134,9 @@ export default function HeroSection({ onBookDemo }) {
               <span className="gt">{variant.h1c}</span>
             </h1>
 
-            <p style={{ fontSize: 17.5, color: 'var(--text-2)', lineHeight: 1.75, marginBottom: 14, maxWidth: 500 }}>
+            <p style={{ fontSize: 17.5, color: 'var(--text-2)', lineHeight: 1.75, marginBottom: 40, maxWidth: 500 }}>
               Rik AI transforms customer feedback, research, and behaviour into clear, confident decisions — across every format, language, and channel.
             </p>
-            <p style={{ fontSize: 13, color: 'rgba(167,139,250,0.65)', marginBottom: 40, letterSpacing: '0.02em' }}>A new era of customer understanding.</p>
 
             <div className="hero-ctas" style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <button onClick={() => onBookDemo()} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 15, padding: '14px 30px', borderRadius: 12, boxShadow: '0 0 40px rgba(124,58,237,0.5)', transition: 'transform 0.2s, box-shadow 0.2s', border: 'none', cursor: 'pointer' }}
