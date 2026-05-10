@@ -7,7 +7,7 @@ const PORTALS = [
     label: 'Voice Portal',
     sub: 'For Survey Respondents',
     desc: 'Join a research study, complete a survey, or share your feedback.',
-    href: 'https://www.rikai.tech',
+    href: 'https://survey.rikai.tech',
     grad: 'linear-gradient(135deg,rgba(124,58,237,0.3),rgba(79,110,247,0.2))',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -21,7 +21,7 @@ const PORTALS = [
     label: 'Customer Portal',
     sub: 'For Teams & Organisations',
     desc: 'Access your Rik AI workspace, manage projects, and view insights.',
-    href: 'https://www.rikai.tech',
+    href: 'https://customer.rikai.tech',
     grad: 'linear-gradient(135deg,rgba(79,110,247,0.3),rgba(124,58,237,0.15))',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
