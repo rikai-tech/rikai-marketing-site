@@ -1,7 +1,7 @@
 'use client';
 
 const heroVariants = {
-  A: { h1a: 'Your customers are speaking.', h1b: 'Make sure every signal', h1c: 'becomes an action.' },
+  A: { h1a: 'Turn customer signals', h1b: 'into decision-ready', h1c: 'intelligence.' },
   B: { h1a: 'Turn customer signals', h1b: 'into confident decisions.', h1c: 'Every time.' },
   C: { h1a: 'Go beyond collecting data.', h1b: 'Understand what customers', h1c: 'are really telling you.' },
 };
@@ -129,7 +129,7 @@ export default function HeroSection({ onBookDemo }) {
             </h1>
 
             <p style={{ fontSize: 17.5, color: 'var(--text-2)', lineHeight: 1.75, marginBottom: 40, maxWidth: 500 }}>
-              Rik AI transforms customer feedback, research, and behaviour into clear, confident decisions — across every format, language, and channel.
+              Run AI-powered research studies and transform feedback, behaviour, and market data into actionable intelligence — across every format, language, and channel.
             </p>
 
             <div className="hero-ctas" style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
