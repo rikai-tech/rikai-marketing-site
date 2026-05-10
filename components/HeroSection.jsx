@@ -103,7 +103,7 @@ export default function HeroSection({ onBookDemo }) {
 
   return (
     <>
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: 68 }}>
+      <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: 68 }}>
         <div className="orb" style={{ width: 720, height: 720, background: 'radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 70%)', top: -140, right: -120, animation: 'float 10s ease-in-out infinite' }} />
         <div className="orb" style={{ width: 480, height: 480, background: 'radial-gradient(circle, rgba(79,110,247,0.15) 0%, transparent 70%)', bottom: -60, left: '28%', animation: 'floatB 8s ease-in-out infinite' }} />
         <div className="orb" style={{ width: 180, height: 180, background: 'radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%)', top: 140, left: '8%', animation: 'float 7s ease-in-out infinite' }} />

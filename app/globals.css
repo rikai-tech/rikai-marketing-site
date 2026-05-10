@@ -145,7 +145,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; padding: 60px 24px !important; }
+  .hero-section { min-height: auto !important; align-items: flex-start !important; padding-bottom: 64px !important; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; padding: 48px 24px !important; }
   .hero-mockup { display: none !important; }
   .hero-h1 { font-size: 42px !important; letter-spacing: -1px !important; }
   .section-h2 { font-size: 36px !important; letter-spacing: -0.5px !important; }
