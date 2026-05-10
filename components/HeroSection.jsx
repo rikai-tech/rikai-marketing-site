@@ -112,11 +112,8 @@ export default function HeroSection({ onBookDemo }) {
         <div className="container hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center', position: 'relative', zIndex: 2, padding: '80px 48px' }}>
           <div>
             {/* Brand lockup */}
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, marginBottom: 32 }}>
-              <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', letterSpacing: '-0.2px' }}>
-                Rik<span className="gt">.ai</span>
-              </span>
-              <p style={{ fontSize: 13, color: 'rgba(167,139,250,0.7)', letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0, fontWeight: 500 }}>
+            <div style={{ marginBottom: 32 }}>
+              <p style={{ fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0, fontWeight: 500, background: 'linear-gradient(90deg, #b45309, #f59e0b, #fcd34d, #f97316, #fcd34d, #f59e0b, #b45309)', backgroundSize: '200% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'shimmer 3s linear infinite' }}>
                 The new verse of market intelligence
               </p>
             </div>
