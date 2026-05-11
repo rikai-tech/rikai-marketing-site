@@ -213,7 +213,7 @@ export default function NavBar({ onBookDemo }) {
         }}
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 32px rgba(124,58,237,0.6)'; }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 28px rgba(124,58,237,0.45)'; }}
-        >Get Started Free</button>
+        >Book a Demo</button>
 
         {/* Hamburger — visible on mobile only */}
         <button
@@ -257,7 +257,7 @@ export default function NavBar({ onBookDemo }) {
               </a>
             ))}
             <button onClick={() => { onBookDemo(); setMobileOpen(false); }} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15, padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer', marginTop: 4, boxShadow: '0 0 28px rgba(124,58,237,0.4)' }}>
-              Get Started Free
+              Book a Demo
             </button>
           </div>
         </div>
