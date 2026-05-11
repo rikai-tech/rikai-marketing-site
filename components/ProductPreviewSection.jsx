@@ -38,7 +38,7 @@ export default function ProductPreviewSection() {
         </div>
         <div className="preview-tabs" style={{ display: 'flex', gap: 8, justifyContent: 'center', marginBottom: 36, flexWrap: 'wrap' }}>
           {tabs.map((tb, i) => (
-            <button key={i} onClick={() => setTab(i)} style={{ padding: '10px 22px', borderRadius: 10, border: '1px solid', cursor: 'pointer', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 14, transition: 'all 0.25s', borderColor: tab === i ? 'rgba(124,58,237,0.5)' : 'var(--border)', background: tab === i ? 'rgba(124,58,237,0.15)' : 'transparent', color: tab === i ? '#c4b5fd' : 'var(--text-2)' }}>{tb.label}</button>
+            <button key={i} onClick={() => setTab(i)} style={{ padding: '10px 22px', borderRadius: 10, border: '1px solid', cursor: 'pointer', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 14, transition: 'all 0.25s', minWidth: 160, textAlign: 'center', borderColor: tab === i ? 'rgba(124,58,237,0.5)' : 'var(--border)', background: tab === i ? 'rgba(124,58,237,0.15)' : 'transparent', color: tab === i ? '#c4b5fd' : 'var(--text-2)' }}>{tb.label}</button>
           ))}
         </div>
         <div className="fu" style={{ borderRadius: 16, border: '1px solid var(--border-md)', overflow: 'hidden', boxShadow: '0 40px 100px rgba(0,0,0,0.5), 0 0 60px rgba(124,58,237,0.1)' }}>
