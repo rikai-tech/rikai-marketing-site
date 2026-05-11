@@ -4,15 +4,15 @@ import SLabel from './SLabel';
 
 const queries = [
   {
-    q: 'What are the top concerns from our NPS survey this month?',
+    q: 'What are customers saying about their onboarding experience?',
     a: {
-      summary: 'I analyzed 847 responses from your Q2 NPS study. Three themes are driving your detractor scores:',
+      summary: 'I reviewed responses from your onboarding feedback study. Three themes stand out:',
       themes: [
-        { label: 'Onboarding Complexity', pct: 34, detail: '"The setup felt overwhelming. I needed more guidance at the start."', sentiment: 'negative' },
-        { label: 'Feature Discoverability', pct: 28, detail: "\"I didn't know half these features existed until a colleague told me.\"", sentiment: 'neutral' },
-        { label: 'Support Response Time', pct: 21, detail: '"For a paid product, response times were slower than I expected."', sentiment: 'negative' },
+        { label: 'Too many steps upfront', pct: 41, detail: '"I wasn\'t sure what I needed to do first or why."', sentiment: 'negative' },
+        { label: 'Lack of in-product guidance', pct: 33, detail: '"I had to figure most of it out on my own."', sentiment: 'neutral' },
+        { label: 'Time to first value felt long', pct: 26, detail: '"It took a while before I felt like I was actually getting something done."', sentiment: 'negative' },
       ],
-      rec: 'Recommendation: Onboarding is your highest-leverage fix. It affects new users in their first 30 days and correlates with 2× churn risk in months 2–3.',
+      rec: 'Recommendation: Simplify the initial setup flow and add contextual prompts at key drop-off points. Early friction is your biggest onboarding risk.',
     },
   },
   {
