@@ -3,10 +3,10 @@ import { useState } from 'react';
 import SLabel from './SLabel';
 
 const personas = [
-  { role: 'CX & Customer Success', tagline: 'Never miss a churn signal again.', body: "Rik AI monitors sentiment and satisfaction continuously — so your team acts on warning signs before they become cancellations. Stop reviewing last month's NPS. Start responding to today's.", outcomes: ['Real-time satisfaction monitoring across every touchpoint', 'Automatic alerts when sentiment drops in a segment', 'AI-generated weekly digests, ready for team meetings'], color: '#60a5fa' },
-  { role: 'UX & Product Research', tagline: "Scale qual insights. Don't scale headcount.", body: 'Run async video studies, concept tests, and usability research simultaneously. AI handles transcription, theme extraction, and analysis — you focus on what the findings mean.', outcomes: ['10× more studies per researcher per quarter', 'Auto-generated reports with zero manual coding', 'Video insight highlights without hours of review'], color: '#a78bfa' },
-  { role: 'Product Management', tagline: 'Build with evidence, not assumptions.', body: 'From concept validation to post-launch retrospectives, Rik AI gives PMs a continuous signal on what users need — so roadmap prioritization is grounded in data, not gut feel.', outcomes: ['Validate features before a sprint begins', 'Link customer language directly to roadmap items', 'Measure launch impact with structured post-release studies'], color: '#34d399' },
-  { role: 'Strategy & Leadership', tagline: 'A real-time pulse on your market.', body: "As a founder or exec, you need honest signal fast. Rik AI gives you a direct line to customer sentiment and market intelligence — without needing a dedicated research team to interpret it.", outcomes: ['Voice-of-customer evidence for board and investor updates', 'Competitive positioning signal from real user language', 'Continuous PMF monitoring from day one'], color: '#f59e0b' },
+  { role: 'CX & Customer Success', tagline: 'Never miss a churn signal again.', body: "Rik AI continuously monitors customer sentiment and satisfaction — helping teams act on warning signs before they become churn. Stop reviewing last month's NPS. Start responding to today's.", outcomes: ['Real-time customer sentiment visibility across every touchpoint', 'Automatic alerts when sentiment drops in a segment', 'AI-generated weekly digests, ready for team meetings'], color: '#60a5fa' },
+  { role: 'UX & Product Research', tagline: "Scale qual insights. Don't scale headcount.", body: 'Run async video studies, concept tests, and usability research simultaneously. AI handles transcription, synthesis, and analysis — so researchers can focus on interpretation, strategy, and decision-making.', outcomes: ['10× more studies per researcher per quarter', 'Auto-generated reports without manual tagging or synthesis', 'Video insight highlights without hours of review'], color: '#a78bfa' },
+  { role: 'Product Management', tagline: 'Build with evidence, not assumptions.', body: 'Rik AI gives PMs continuous visibility into what users need — so roadmap decisions are grounded in evidence, not intuition.', outcomes: ['Validate features before a sprint begins', 'Link customer language directly to roadmap items', 'Measure launch impact with structured post-release studies'], color: '#34d399' },
+  { role: 'Strategy & Leadership', tagline: 'A real-time pulse on your market.', body: "As a founder or executive, you need direct, trustworthy market signal fast. Rik AI gives you a direct line to customer sentiment and market intelligence — without needing a dedicated research team to interpret it.", outcomes: ['Voice-of-customer evidence for board and investor updates', 'Competitive positioning signal from real user language', 'Continuous PMF monitoring from day one'], color: '#f59e0b' },
 ];
 
 export default function UseCasesSection() {
@@ -18,8 +18,8 @@ export default function UseCasesSection() {
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <SLabel>Who It's For</SLabel>
-          <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 46, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15 }}>
-            Built for every team that<br /><span className="gt">needs to understand customers</span>
+          <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15 }}>
+            Built for teams where customer<br /><span className="gt">understanding drives decisions</span>
           </h2>
         </div>
         <div className="usecase-tabs" style={{ display: 'flex', gap: 8, justifyContent: 'center', marginBottom: 48, flexWrap: 'wrap' }}>

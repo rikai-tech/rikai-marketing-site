@@ -3,11 +3,11 @@ import { useState } from 'react';
 import SLabel from './SLabel';
 
 const personas = [
-  { name: 'Jal', element: 'Empathy Mode', color: '#60a5fa', symbol: '〰', tagline: "Creates space for answers people don't usually say out loud.", when: 'Sensitive topics · Emotion-driven feedback' },
-  { name: 'Vayu', element: 'Discovery Mode', color: '#a78bfa', symbol: '≋', tagline: 'Follows curiosity wherever it leads.', when: 'Exploration · Early-stage thinking' },
-  { name: 'Agni', element: 'Insight Mode', color: '#f97316', symbol: '◈', tagline: "Pushes past answers to find what's actually driving them.", when: 'Strong opinions · NPS · Pain points' },
-  { name: 'Prithvi', element: 'Clarity Mode', color: '#34d399', symbol: '⬡', tagline: 'Turns vague answers into something you can trust.', when: 'Structured research · Validation' },
-  { name: 'Aakash', element: 'Reflection Mode', color: '#c084fc', symbol: '✦', tagline: "Surfaces thoughts people didn't know they had.", when: 'Strategy · Long-term thinking' },
+  { name: 'Jal', element: 'Empathy Mode', color: '#60a5fa', symbol: '〰', tagline: "Creates space for answers people don't usually say out loud.", when: 'Sensitive topics · Emotional insights' },
+  { name: 'Vayu', element: 'Discovery Mode', color: '#a78bfa', symbol: '≋', tagline: 'Explores unexpected directions to uncover new insight.', when: 'Exploration · Concept testing' },
+  { name: 'Agni', element: 'Insight Mode', color: '#f97316', symbol: '▲', tagline: "Pushes past answers to find what's actually driving them.", when: 'Pain points · Opinion research' },
+  { name: 'Prithvi', element: 'Clarity Mode', color: '#34d399', symbol: '⬡', tagline: 'Turns ambiguous feedback into structured understanding.', when: 'Structured research · Validation' },
+  { name: 'Aakash', element: 'Reflection Mode', color: '#c084fc', symbol: '✦', tagline: "Surfaces thoughts people didn't know they had.", when: 'Strategy · Innovation · Future trends' },
 ];
 
 export default function PersonasSection() {
@@ -19,13 +19,10 @@ export default function PersonasSection() {
       <div className="container" style={{ position: 'relative' }}>
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <SLabel>AI Interview Personas</SLabel>
-          <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 46, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 14 }}>
+          <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 14 }}>
             The right conversation<br /><span className="gt">for every kind of question</span>
           </h2>
-          <p className="fu d1" style={{ fontSize: 16, color: 'var(--text-3)', maxWidth: 520, margin: '0 auto 10px', lineHeight: 1.7 }}>
-            Different research needs different conversations.
-          </p>
-          <p className="fu d2" style={{ fontSize: 16, color: 'var(--text-2)', maxWidth: 580, margin: '0 auto 56px', lineHeight: 1.75 }}>
+          <p className="fu d1" style={{ fontSize: 17, color: 'var(--text-2)', maxWidth: 580, margin: '0 auto 56px', lineHeight: 1.75 }}>
             Rik AI adapts how it asks — not just what it asks. Each persona shapes the tone, pacing, and style of every participant interaction based on your research goal. The result is better conversations, and richer insights.
           </p>
         </div>
@@ -39,8 +36,8 @@ export default function PersonasSection() {
               <div style={{ width: 56, height: 56, borderRadius: '50%', background: `${p.color}16`, border: `1.5px solid ${p.color}35`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 18px', fontSize: 22, color: p.color, transition: 'all 0.3s', boxShadow: hovered === i ? `0 0 28px ${p.color}35` : 'none' }}>{p.symbol}</div>
               <div style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 20, color: p.color, marginBottom: 4 }}>{p.name}</div>
               <div style={{ fontSize: 10, fontWeight: 700, color: p.color, opacity: 0.7, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16 }}>{p.element}</div>
-              <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-1)', lineHeight: 1.55, marginBottom: 'auto', fontFamily: 'var(--fh)', flexGrow: 1 }}>{p.tagline}</p>
-              <div style={{ marginTop: 20, fontSize: 11, color: p.color, lineHeight: 1.55, padding: '8px 12px', background: `${p.color}10`, borderRadius: 8, border: `1px solid ${p.color}25` }}>
+              <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-1)', lineHeight: 1.55, marginBottom: 'auto', fontFamily: 'var(--fh)', flexGrow: 1 }}>{p.tagline}</p>
+              <div style={{ marginTop: 20, fontSize: 12.5, color: 'var(--text-2)', lineHeight: 1.55, padding: '8px 12px', background: `${p.color}10`, borderRadius: 8, border: `1px solid ${p.color}25` }}>
                 <span style={{ fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', fontSize: 9, display: 'block', marginBottom: 4, opacity: 0.7 }}>Best for</span>
                 {p.when}
               </div>

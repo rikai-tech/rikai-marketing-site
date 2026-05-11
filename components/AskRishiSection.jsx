@@ -4,15 +4,15 @@ import SLabel from './SLabel';
 
 const queries = [
   {
-    q: 'What are the top concerns from our NPS survey this month?',
+    q: 'What are customers saying about their onboarding experience?',
     a: {
-      summary: 'I analyzed 847 responses from your Q2 NPS study. Three themes are driving your detractor scores:',
+      summary: 'I reviewed responses from your onboarding feedback study. Three themes stand out:',
       themes: [
-        { label: 'Onboarding Complexity', pct: 34, detail: '"The setup felt overwhelming. I needed more guidance at the start."', sentiment: 'negative' },
-        { label: 'Feature Discoverability', pct: 28, detail: "\"I didn't know half these features existed until a colleague told me.\"", sentiment: 'neutral' },
-        { label: 'Support Response Time', pct: 21, detail: '"For a paid product, response times were slower than I expected."', sentiment: 'negative' },
+        { label: 'Too many steps upfront', pct: 41, detail: '"I wasn\'t sure what I needed to do first or why."', sentiment: 'negative' },
+        { label: 'Lack of in-product guidance', pct: 33, detail: '"I had to figure most of it out on my own."', sentiment: 'neutral' },
+        { label: 'Time to first value felt long', pct: 26, detail: '"It took a while before I felt like I was actually getting something done."', sentiment: 'negative' },
       ],
-      rec: 'Recommendation: Onboarding is your highest-leverage fix. It affects new users in their first 30 days and correlates with 2× churn risk in months 2–3.',
+      rec: 'Recommendation: Simplify the initial setup flow and add contextual prompts at key drop-off points. Early friction is your biggest onboarding risk.',
     },
   },
   {
@@ -55,20 +55,20 @@ export default function AskRishiSection() {
           {/* Left */}
           <div>
             <SLabel color="#60a5fa">Ask Rishi</SLabel>
-            <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 44, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.1, marginBottom: 16 }}>
+            <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.1, marginBottom: 16 }}>
               Ask anything about<br />your customers.<br />
-              <span style={{ background: 'linear-gradient(135deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Get an answer in seconds.</span>
+              <span style={{ background: 'linear-gradient(135deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Get a clear answer in seconds.</span>
             </h2>
-            <p className="fu d1" style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-1)', marginBottom: 6, letterSpacing: '-0.3px' }}>No dashboards. No digging. Just answers.</p>
-            <p className="fu d2" style={{ fontSize: 14, color: '#60a5fa', fontWeight: 600, marginBottom: 10 }}>From question to insight in minutes — not weeks.</p>
+            <p className="fu d1" style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-1)', marginBottom: 6, letterSpacing: '-0.3px' }}>Your AI research analyst — always on, always ready.</p>
+            <p className="fu d2" style={{ fontSize: 14, color: '#60a5fa', fontWeight: 600, marginBottom: 10 }}>From question to insight in minutes — no waiting, no digging.</p>
             <p className="fu d3" style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.8, marginBottom: 12 }}>
-              Rishi is your AI research analyst — available instantly, fluent in every format your customers respond in.
+              Ask Rishi anything about your customers. It reads your research data, surfaces themes, patterns, and signals — and returns a clear, decision-ready answer.
             </p>
             <p className="fu d4" style={{ fontSize: 12.5, color: 'var(--text-3)', lineHeight: 1.7, marginBottom: 32 }}>
-              Powered by signals across text, video, voice, languages, and behaviours.
+              Designed to grow with your research across languages and channels — Rishi connects the signals that matter most to your team.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 36 }}>
-              {['Understands context across multiple studies', 'Surfaces themes, not just statistics', 'Explains its reasoning, not just its findings', 'Recommends next actions based on evidence'].map((item, i) => (
+              {['Surfaces context from your research data', 'Surfaces themes, not just statistics', 'Explains its reasoning, not just its findings', 'Recommends next actions based on evidence'].map((item, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div style={{ width: 20, height: 20, borderRadius: 6, background: 'rgba(96,165,250,0.15)', border: '1px solid rgba(96,165,250,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" fill="none" /></svg>

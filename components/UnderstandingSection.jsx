@@ -1,10 +1,10 @@
 import SLabel from './SLabel';
 
 const pillars = [
-  { icon: '◈', color: '#a78bfa', title: 'Multi-modal signal capture', body: 'Text responses, video interviews, voice notes, and behavioral data — analyzed together in a single workflow. Not siloed. Not summarized separately. Understood as one signal.', label: 'Text · Video · Voice' },
+  { icon: '◈', color: '#a78bfa', title: 'Multi-modal signal capture', body: 'Whether your study captures text responses, video interviews, or voice notes — Rik AI processes and analyses each format, extracting meaning and themes so nothing gets lost.', label: 'Text · Video · Voice' },
   { icon: '✦', color: '#60a5fa', title: 'Multi-language understanding', body: 'Your customers speak different languages. Understand feedback across all of them — without losing meaning in translation. No manual localization needed.', label: 'Global-ready by default' },
   { icon: '◉', color: '#34d399', title: 'Response quality you can trust', body: 'Built-in quality validation flags low-effort responses, contradictory answers, and speeders before they reach your analysis — so your decisions rest on genuine signal, not noise.', label: 'Signal integrity built-in' },
-  { icon: '◇', color: '#f59e0b', title: 'Insights that compound over time', body: 'Every study adds to your intelligence library. Rishi connects signals across past and present research — so each new study makes your understanding of customers sharper, not just wider.', label: 'Cumulative intelligence' },
+  { icon: '◇', color: '#f59e0b', title: 'Insights that build as you research', body: 'Every response is processed and made available the moment it arrives. As your study collects more responses, your aggregate understanding deepens in real time.', label: 'Cumulative intelligence' },
   { icon: '▣', color: '#818cf8', title: 'Built for trust from day one', body: 'Customer data is handled securely across every interaction. Privacy-first design with controlled access, defined retention policies, and enterprise-grade encryption throughout.', label: 'Security & Privacy' },
 ];
 
@@ -16,7 +16,7 @@ export default function UnderstandingSection() {
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
           <SLabel color="#a78bfa">Signal Intelligence</SLabel>
           <h2 className="fu" style={{ fontFamily: 'var(--fh)', fontSize: 46, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 16 }}>
-            Understanding,<br /><span className="gt">without limits</span>
+            Understanding every signal<br /><span className="gt">that matters</span>
           </h2>
           <p className="fu d1" style={{ fontSize: 17, color: 'var(--text-2)', maxWidth: 540, margin: '0 auto', lineHeight: 1.75 }}>
             The depth of your customer understanding should never be constrained by format, language, or data quality. Rik AI removes each of those limits.
