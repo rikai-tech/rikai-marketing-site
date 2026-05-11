@@ -14,10 +14,10 @@ export default function CTASection({ onBookDemo }) {
           <span style={{ fontSize: 11, fontWeight: 700, color: '#fcd34d', fontFamily: 'var(--fh)', letterSpacing: '0.06em' }}>EARLY ACCESS NOW OPEN — LIMITED SPOTS AVAILABLE</span>
         </div>
         <h2 style={{ fontFamily: 'var(--fh)', fontSize: 58, fontWeight: 800, letterSpacing: '-1.5px', lineHeight: 1.08, marginBottom: 24 }}>
-          Your customers are telling you<br />something important.<br /><span className="gt">Rik AI makes sure you hear it.</span>
+          Customer signals move fast.<br /><span className="gt">Your decisions should too.</span>
         </h2>
         <p style={{ fontSize: 18, color: 'var(--text-2)', maxWidth: 580, margin: '0 auto 16px', lineHeight: 1.75 }}>
-          Join teams using Rik AI to build a continuous, reliable picture of their customers — and make every decision with clarity and confidence.
+          Rik AI helps teams continuously understand customer feedback, behavior, and research signals — so insight reaches decision-makers while it still matters.
         </p>
         <p style={{ fontSize: 14, color: 'rgba(167,139,250,0.6)', marginBottom: 52 }}>A new era of customer understanding.</p>
 
@@ -47,7 +47,7 @@ export default function CTASection({ onBookDemo }) {
           >Contact Sales at sales@rikai.tech</a>
         </div>
 
-        <p style={{ marginTop: 22, fontSize: 13, color: 'var(--text-3)' }}>White-glove onboarding · Enterprise-grade security · No minimum commitment</p>
+        <p style={{ marginTop: 22, fontSize: 13, color: 'var(--text-3)' }}>White-glove onboarding · Enterprise-grade security · Fast deployment with guided setup</p>
       </div>
     </section>
   );
