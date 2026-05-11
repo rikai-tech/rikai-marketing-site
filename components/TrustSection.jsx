@@ -1,10 +1,10 @@
 import SLabel from './SLabel';
 
 const items = [
-  { icon: '◈', title: 'Built for messy, real-world data', body: 'Rik AI handles incomplete responses, mixed-format inputs, contradictory signals, and low-quality entries — automatically. No pre-cleaning. No data prep required.', color: '#a78bfa' },
-  { icon: '◇', title: 'No data team required', body: "You don't need an analyst, statistician, or engineer. Every layer is built for the researcher, PM, or CX lead who needs a clear answer — right now.", color: '#60a5fa' },
+  { icon: '◈', title: 'Built for messy, real-world data', body: 'Rik AI automatically handles incomplete responses, mixed-format inputs, contradictory signals, and low-quality entries — without manual cleanup or preprocessing.', color: '#a78bfa' },
+  { icon: '◇', title: 'No data team required', body: "You don't need analysts or engineers to uncover meaningful insight. Every layer is built for researchers, PMs, and CX teams that need answers fast.", color: '#60a5fa' },
   { icon: '▣', title: 'Handles the complexity you actually face', body: 'Multi-segment studies. Mixed-language panels. Async video across time zones. Skip logic on branching studies. Standard workflows — not edge cases.', color: '#34d399' },
-  { icon: '◉', title: 'Moves at the pace of your decisions', body: "Hours from study launch to AI summary. Built for teams where research needs to inform this week's decision — not next quarter's review.", color: '#f59e0b' },
+  { icon: '◉', title: 'Moves at the pace of your decisions', body: "Go from study launch to AI-generated insight in hours, not weeks. Built for teams where research needs to inform this week's decision — not next quarter's review.", color: '#f59e0b' },
 ];
 
 export default function TrustSection() {
@@ -18,7 +18,7 @@ export default function TrustSection() {
             Built for real-world<br /><span style={{ background: 'linear-gradient(135deg, #34d399, #60a5fa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>complexity</span>
           </h2>
           <p className="fu d1" style={{ fontSize: 17, color: 'var(--text-2)', maxWidth: 540, margin: '0 auto', lineHeight: 1.75 }}>
-            Most research tools work perfectly in demos. Rik AI was built for the workflows that happen in practice — the messy, fast-moving, multi-format reality of how teams actually operate.
+            Most research tools work perfectly in demos. Rik AI was built for the workflows that happen in practice — the messy, fast-moving reality of how teams actually gather and understand customer signals.
           </p>
         </div>
         <div className="trust-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
