@@ -11,18 +11,11 @@ const tabs = [
     why: 'Why this matters: your team stays one step ahead of every study, every time.',
   },
   {
-    label: 'Participant Portal',
+    label: 'Voice Portal',
     img: '/uploads/rikai-surveyportal.JPG',
     headline: 'An experience respondents actually want to come back to.',
     caption: 'Purpose-built for participants — not just researchers. Seamless navigation, pending study queues, and incentive management designed to maximize completion and response quality.',
     why: 'Why this matters: higher completion rates mean more reliable, representative data.',
-  },
-  {
-    label: 'Product View',
-    img: '/uploads/product_screenshot-1776774964657.JPG',
-    headline: 'Built for the speed of real decisions.',
-    caption: 'From launching a study to reading the AI summary — every step is optimized for the time you actually have. No unnecessary steps. No waiting for the system to catch up.',
-    why: 'Why this matters: research that moves at decision speed changes how your team operates.',
   },
 ];
 
@@ -38,8 +31,8 @@ export default function ProductPreviewSection() {
           <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 16 }}>
             Two portals.<br /><span className="gt">One seamless system.</span>
           </h2>
-          <p className="fu d1" style={{ fontSize: 16, color: 'var(--text-2)', maxWidth: 520, margin: '0 auto 8px' }}>
-            Rik AI ships two purpose-built interfaces — one for your team, one for your participants. Both designed to reduce friction and maximize signal quality.
+          <p className="fu d1" style={{ fontSize: 16, color: 'var(--text-2)', maxWidth: 560, margin: '0 auto 8px' }}>
+            Rik AI is built around two connected experiences — one for your team, one for your respondents. Both designed to reduce friction and maximize signal quality.
           </p>
           <p className="fu d2" style={{ fontSize: 13, color: 'rgba(167,139,250,0.6)', margin: '0 auto', textAlign: 'center' }}>See how decisions happen in real time.</p>
         </div>
