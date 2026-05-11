@@ -5,7 +5,7 @@ import SLabel from './SLabel';
 const personas = [
   { name: 'Jal', element: 'Empathy Mode', color: '#60a5fa', symbol: '〰', tagline: "Creates space for answers people don't usually say out loud.", when: 'Sensitive topics · Emotional insights' },
   { name: 'Vayu', element: 'Discovery Mode', color: '#a78bfa', symbol: '≋', tagline: 'Explores unexpected directions to uncover new insight.', when: 'Exploration · Concept testing' },
-  { name: 'Agni', element: 'Insight Mode', color: '#f97316', symbol: '🔥', tagline: "Pushes past answers to find what's actually driving them.", when: 'Pain points · Opinion research' },
+  { name: 'Agni', element: 'Insight Mode', color: '#f97316', symbol: '▲', tagline: "Pushes past answers to find what's actually driving them.", when: 'Pain points · Opinion research' },
   { name: 'Prithvi', element: 'Clarity Mode', color: '#34d399', symbol: '⬡', tagline: 'Turns ambiguous feedback into structured understanding.', when: 'Structured research · Validation' },
   { name: 'Aakash', element: 'Reflection Mode', color: '#c084fc', symbol: '✦', tagline: "Surfaces thoughts people didn't know they had.", when: 'Strategy · Innovation · Future trends' },
 ];
