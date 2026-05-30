@@ -46,6 +46,7 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
   const [form, setForm] = useState({ name: '', company: '', email: initialEmail, phone: '', notes: '' });
   const [guestInput, setGuestInput] = useState('');
   const [guests, setGuests] = useState([]);
+  const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState('');
@@ -132,7 +133,8 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
   const isFormValid =
     form.name.trim() &&
     form.company.trim() &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) &&
+    consent;
 
   const handleSubmit = async () => {
     if (!isFormValid || loading) return;
@@ -142,7 +144,7 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
       const res = await fetch('/api/book-demo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, slots, guests }),
+        body: JSON.stringify({ ...form, slots, guests, consent }),
       });
       if (!res.ok) throw new Error('server');
       setSubmitted(true);
@@ -566,6 +568,26 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
                   onBlur={e => e.target.style.borderColor = 'var(--border-md)'}
                 />
               </div>
+
+              {/* Consent checkbox */}
+              <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 20, cursor: 'pointer' }}>
+                <div
+                  onClick={() => setConsent(c => !c)}
+                  style={{
+                    width: 18, height: 18, borderRadius: 5, flexShrink: 0, marginTop: 1,
+                    border: consent ? '2px solid #7c3aed' : '1.5px solid rgba(255,255,255,0.2)',
+                    background: consent ? '#7c3aed' : 'rgba(255,255,255,0.04)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    transition: 'all 0.15s', cursor: 'pointer',
+                  }}
+                >
+                  {consent && <span style={{ color: '#fff', fontSize: 11, fontWeight: 800, lineHeight: 1 }}>✓</span>}
+                </div>
+                <span style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}>
+                  I agree that Rik.ai may use my information to contact me regarding my enquiry and related products and services. See our{' '}
+                  <a href="/privacy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--purple-light)', fontWeight: 600 }}>Privacy Policy</a>.
+                </span>
+              </label>
 
               {apiError && (
                 <p style={{ fontSize: 13, color: '#fca5a5', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: 8, padding: '10px 14px', marginBottom: 16 }}>
