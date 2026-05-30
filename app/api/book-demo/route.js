@@ -201,13 +201,18 @@ async function hubspotRequest(path, method, body) {
   return { ok: res.ok, status: res.status, data: res.ok ? await res.json() : null };
 }
 
-async function upsertHubSpotContact({ name, company, email, phone }) {
+async function upsertHubSpotContact({ name, company, email, phone, consent }) {
   const [firstname, ...rest] = name.trim().split(' ');
   const lastname = rest.join(' ');
 
+  const consentProperties = consent ? {
+    hs_legal_basis: 'Freely given consent from contact',
+    hs_lawful_basis_explanation: 'Contact submitted the Book a Demo form on rikai.tech and explicitly consented to be contacted about their enquiry and related products.',
+  } : {};
+
   // Try create first
   const create = await hubspotRequest('/crm/v3/objects/contacts', 'POST', {
-    properties: { firstname, lastname, email, phone: phone || '', company, hs_lead_status: 'NEW' },
+    properties: { firstname, lastname, email, phone: phone || '', company, hs_lead_status: 'NEW', ...consentProperties },
   });
 
   if (create.ok) return create.data.id;
@@ -273,7 +278,7 @@ async function createHubSpotNote({ slots, guests, notes, contactId, dealId }) {
 
 export async function POST(request) {
   try {
-    const { name, company, email, phone, slots, guests, notes } = await request.json();
+    const { name, company, email, phone, slots, guests, notes, consent } = await request.json();
 
     const fromAddress = process.env.RESEND_FROM_ADDRESS || 'Rik AI <noreply@rikai.tech>';
     const toAddress = process.env.BOOKING_NOTIFY_EMAIL || 'sales@rikai.tech';
@@ -300,7 +305,7 @@ export async function POST(request) {
 
       // HubSpot CRM
       (async () => {
-        const contactId = await upsertHubSpotContact({ name, company, email, phone });
+        const contactId = await upsertHubSpotContact({ name, company, email, phone, consent });
         const deal = await createHubSpotDeal({ name, company, slots, notes, guests, contactId });
         await createHubSpotNote({ slots, guests, notes, contactId, dealId: deal?.id || null });
       })(),
