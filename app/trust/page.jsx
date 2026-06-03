@@ -217,7 +217,7 @@ export default function TrustPage() {
                 </thead>
                 <tbody>
                   <TableRow cols={['Neon (PostgreSQL hosting)', 'Database hosting', 'All stored data (encrypted at rest)', 'AWS ap-southeast-1 (Singapore)']} />
-                  <TableRow cols={['Anthropic (Claude)', 'AI interviewer; aggregate report generation; "Ask Your Data" analytics', 'Anonymised transcript segments; Portal User queries', 'USA']} />
+                  <TableRow cols={['Anthropic (Claude)', 'AI interviewer; aggregate report generation; "Ask Rishi" analytics', 'Anonymised transcript segments; Portal User queries', 'USA']} />
                   <TableRow cols={['Google Cloud Platform', 'Speech-to-text; sentiment analysis; facial expression analysis; text-to-speech; file storage', 'Audio (transient), transcript text, still frames (transient)', 'USA / global']} />
                   <TableRow cols={['Resend', 'Transactional email delivery', 'Email address, name, email content', 'USA']} />
                   <TableRow cols={['MSG91', 'WhatsApp / SMS notifications', 'Phone number, notification content', 'India']} />
@@ -242,7 +242,7 @@ export default function TrustPage() {
             <Bullet>Raw video frames: deleted immediately after analysis</Bullet>
             <Bullet>Participant account data: until deletion + 30-day cooling period</Bullet>
             <Bullet>Payout records: 7 years (legal obligation)</Bullet>
-            <Bullet>Audit logs: 90 days</Bullet>
+            <Bullet>Audit logs: 180 days</Bullet>
             <Bullet>Customer Data (Survey configs): until account closure + 90 days</Bullet>
             <Bullet>Aggregate Reports: indefinitely (anonymised, no personal data)</Bullet>
             <Bullet>Marketing website enquiry data: up to 2 years</Bullet>
@@ -266,7 +266,7 @@ export default function TrustPage() {
             <Clause id="(b)">Sentiment Analysis: We use Google Cloud Natural Language API to compute sentiment scores (positive, neutral, negative) from participant transcripts.</Clause>
             <Clause id="(c)">Facial Expression Analysis (video surveys only, with explicit consent): We use Google Cloud Vision API to derive engagement-related analytical metrics. Raw frames are deleted immediately after analysis.</Clause>
             <Clause id="(d)">Automated Theme Extraction: The AI identifies recurring themes, patterns, and anomalies across participant responses.</Clause>
-            <Clause id="(e)">&quot;Ask Your Data&quot; (Customer Portal): Customers can ask natural language questions about their survey data, and the AI provides answers based on aggregate, anonymised data.</Clause>
+            <Clause id="(e)">&quot;Ask Rishi&quot; (Customer Portal): Customers can ask natural language questions about their survey data, and the AI provides answers based on aggregate, anonymised data.</Clause>
             <Clause id="(f)">Aggregate Report Generation: The AI generates executive summaries, key findings, and strategic recommendations from survey data.</Clause>
           </SubSection>
 
@@ -312,7 +312,7 @@ export default function TrustPage() {
               <p style={{ margin: '0 0 6px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Partha Roy, Founder &amp; Grievance Officer</p>
               <p style={{ margin: 0, fontSize: 14, color: 'var(--text-3)', lineHeight: 1.9 }}>
                 Email: <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)' }}>contact@rikai.tech</a><br />
-                Response Time: We aim to acknowledge grievances within 72 hours and resolve them as promptly as practicable, generally within 30 days.
+                Response Time: We aim to acknowledge grievances within 7 days and resolve them as promptly as practicable, generally within 30 days.
               </p>
             </div>
             <P>If you are not satisfied with our resolution, you may escalate to the Data Protection Board of India once constituted.</P>
