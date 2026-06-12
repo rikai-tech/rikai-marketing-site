@@ -40,7 +40,7 @@ export default function PrivacyPage() {
             Rik<span className="gt">.ai</span>
           </span>
         </a>
-        <a href="/" style={{ fontSize: 14, color: 'var(--text-3)', fontFamily: 'var(--fh)' }}>← Back to home test</a>
+        <a href="/" style={{ fontSize: 14, color: 'var(--text-3)', fontFamily: 'var(--fh)' }}>← Back to home</a>
       </div>
 
       {/* Hero */}
