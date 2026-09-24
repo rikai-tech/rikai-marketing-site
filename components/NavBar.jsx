@@ -30,13 +30,52 @@ const PORTALS = [
       </svg>
     ),
   },
+  {
+    key: 'liveagent-admin',
+    label: 'LiveAgent Admin Console',
+    sub: 'Coming soon',
+    desc: 'Configure and manage your LiveAgent support agents.',
+    href: '#',
+    disabled: true,
+    grad: 'linear-gradient(135deg,rgba(245,158,11,0.25),rgba(124,58,237,0.15))',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v1"/>
+      </svg>
+    ),
+  },
 ];
 
-export default function NavBar({ onBookDemo }) {
+const PRODUCTS_DROPDOWN = [
+  { key: 'market-research', label: 'Market Research', sub: 'Understand your customers', href: '/products/market-research' },
+  { key: 'liveagent', label: 'LiveAgent', sub: 'Take care of your customers', href: '/products/liveagent' },
+];
+
+const LOCAL_LINKS = {
+  'market-research': [
+    { label: 'Platform', href: '/products/market-research#features' },
+    { label: 'Ask Rishi', href: '/products/market-research#rishi' },
+    { label: 'Solutions', href: '/products/market-research#personas' },
+    { label: 'Product', href: '/products/market-research#product' },
+  ],
+  liveagent: [
+    { label: 'Overview', href: '/products/liveagent#la-hero' },
+    { label: 'How It Works', href: '/products/liveagent#how-it-works' },
+    { label: 'Security', href: '/products/liveagent#governed' },
+    { label: 'Traceability', href: '/products/liveagent#traceable' },
+    { label: "Who It's For", href: '/products/liveagent#who-for' },
+  ],
+};
+
+const GLOBAL_CTA = { 'market-research': 'Book a Market Research Demo', liveagent: 'Book a LiveAgent Demo' };
+
+export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
   const [scrolled, setScrolled] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const signInRef = useRef(null);
+  const productsRef = useRef(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -44,23 +83,17 @@ export default function NavBar({ onBookDemo }) {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const fn = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setSignInOpen(false);
-      }
+      if (signInRef.current && !signInRef.current.contains(e.target)) setSignInOpen(false);
+      if (productsRef.current && !productsRef.current.contains(e.target)) setProductsOpen(false);
     };
     document.addEventListener('mousedown', fn);
     return () => document.removeEventListener('mousedown', fn);
   }, []);
 
-  const links = [
-    { label: 'Platform', href: '#features' },
-    { label: 'Ask Rishi', href: '#rishi' },
-    { label: 'Solutions', href: '#personas' },
-    { label: 'Product', href: '#product' },
-  ];
+  const links = LOCAL_LINKS[activeProduct] || null;
+  const resolvedCta = ctaLabel || GLOBAL_CTA[activeProduct] || 'Book a Demo';
 
   const navStyle = {
     position: 'fixed', top: 0, left: 0, right: 0, zIndex: 200,
@@ -81,7 +114,7 @@ export default function NavBar({ onBookDemo }) {
 
   return (
     <nav style={navStyle}>
-      <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <img src="/uploads/logo_upload-1776774656314.png" alt="Rik AI" style={{ height: '38px', width: 'auto' }} />
         <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: '21px', color: 'var(--text-1)', letterSpacing: '-0.5px' }}>
           Rik<span className="gt">.ai</span>
@@ -89,18 +122,64 @@ export default function NavBar({ onBookDemo }) {
       </a>
 
       <div className="nav-links" style={{ display: 'flex', gap: '36px', alignItems: 'center' }}>
-        {links.map(l => (
-          <a key={l.label} href={l.href} style={linkStyle}
-            onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-          >{l.label}</a>
-        ))}
+        {links ? (
+          links.map(l => (
+            <a key={l.label} href={l.href} style={linkStyle}
+              onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+            >{l.label}</a>
+          ))
+        ) : (
+          <>
+            <div ref={productsRef} style={{ position: 'relative' }}>
+              <button
+                onClick={() => setProductsOpen(o => !o)}
+                style={{ ...linkStyle, background: 'none', border: 'none', padding: 0, display: 'flex', alignItems: 'center', gap: 5 }}
+                onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+              >
+                Products
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ transition: 'transform 0.2s', transform: productsOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}>
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              {productsOpen && (
+                <div style={{
+                  position: 'absolute', top: 'calc(100% + 14px)', left: '50%', transform: 'translateX(-50%)',
+                  width: 270, background: '#0d0d20', border: '1px solid rgba(124,58,237,0.2)', borderRadius: 16,
+                  boxShadow: '0 32px 80px rgba(0,0,0,0.7)', overflow: 'hidden', zIndex: 300, padding: 8,
+                }}>
+                  {PRODUCTS_DROPDOWN.map(p => (
+                    <a key={p.key} href={p.href} onClick={() => setProductsOpen(false)} style={{
+                      display: 'block', padding: '12px 14px', borderRadius: 10, textDecoration: 'none',
+                      transition: 'background 0.15s',
+                    }}
+                      onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.1)'}
+                      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                    >
+                      <div style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', marginBottom: 2 }}>{p.label}</div>
+                      <div style={{ fontSize: 12, color: 'var(--text-3)' }}>{p.sub}</div>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            <a href="/about" style={linkStyle}
+              onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+            >About</a>
+            <a href="/contact" style={linkStyle}
+              onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+            >Contact</a>
+          </>
+        )}
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
 
         {/* Sign in with dropdown — hidden on mobile */}
-        <div ref={dropdownRef} className="nav-desktop-only" style={{ position: 'relative' }}>
+        <div ref={signInRef} className="nav-desktop-only" style={{ position: 'relative' }}>
           <button
             onClick={() => setSignInOpen(o => !o)}
             style={{
@@ -147,9 +226,9 @@ export default function NavBar({ onBookDemo }) {
                   <a
                     key={portal.key}
                     href={portal.href}
-                    target="_blank"
+                    target={portal.disabled ? undefined : '_blank'}
                     rel="noopener noreferrer"
-                    onClick={() => setSignInOpen(false)}
+                    onClick={(e) => { if (portal.disabled) { e.preventDefault(); return; } setSignInOpen(false); }}
                     style={{
                       display: 'flex', alignItems: 'flex-start', gap: 14,
                       padding: '14px 12px',
@@ -157,9 +236,11 @@ export default function NavBar({ onBookDemo }) {
                       textDecoration: 'none',
                       transition: 'background 0.15s',
                       background: 'transparent',
+                      opacity: portal.disabled ? 0.55 : 1,
+                      cursor: portal.disabled ? 'default' : 'pointer',
                       marginBottom: i < PORTALS.length - 1 ? 4 : 0,
                     }}
-                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.1)'}
+                    onMouseEnter={e => { if (!portal.disabled) e.currentTarget.style.background = 'rgba(124,58,237,0.1)'; }}
                     onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                   >
                     {/* Icon box */}
@@ -175,7 +256,7 @@ export default function NavBar({ onBookDemo }) {
                       <p style={{ margin: '0 0 3px', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', lineHeight: 1.3 }}>
                         {portal.label}
                       </p>
-                      <p style={{ margin: '0 0 6px', fontFamily: 'var(--fh)', fontSize: 11, fontWeight: 600, color: '#a78bfa', lineHeight: 1.3, letterSpacing: '0.02em' }}>
+                      <p style={{ margin: '0 0 6px', fontFamily: 'var(--fh)', fontSize: 11, fontWeight: 600, color: portal.disabled ? '#fcd34d' : '#a78bfa', lineHeight: 1.3, letterSpacing: '0.02em' }}>
                         {portal.sub}
                       </p>
                       <p style={{ margin: 0, fontFamily: 'var(--fb)', fontSize: 12, color: 'var(--text-3)', lineHeight: 1.65 }}>
@@ -184,9 +265,11 @@ export default function NavBar({ onBookDemo }) {
                     </div>
 
                     {/* Arrow */}
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, opacity: 0.3, marginTop: 3 }}>
-                      <path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    {!portal.disabled && (
+                      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, opacity: 0.3, marginTop: 3 }}>
+                        <path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
                   </a>
                 ))}
               </div>
@@ -195,7 +278,7 @@ export default function NavBar({ onBookDemo }) {
               <div style={{ padding: '8px 16px 12px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                 <p style={{ margin: 0, fontSize: 11, color: 'var(--text-3)', fontFamily: 'var(--fb)' }}>
                   Not sure?{' '}
-                  <a href="mailto:sales@rikai.tech" style={{ color: '#a78bfa', textDecoration: 'none', fontWeight: 600 }}>Contact us</a>
+                  <a href="/contact" style={{ color: '#a78bfa', textDecoration: 'none', fontWeight: 600 }}>Contact us</a>
                 </p>
               </div>
             </div>
@@ -210,10 +293,11 @@ export default function NavBar({ onBookDemo }) {
           boxShadow: '0 0 28px rgba(124,58,237,0.45)',
           transition: 'transform 0.2s, box-shadow 0.2s',
           border: 'none', cursor: 'pointer',
+          whiteSpace: 'nowrap',
         }}
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 32px rgba(124,58,237,0.6)'; }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 28px rgba(124,58,237,0.45)'; }}
-        >Book a Demo</button>
+        >{resolvedCta}</button>
 
         {/* Hamburger — visible on mobile only */}
         <button
@@ -231,15 +315,21 @@ export default function NavBar({ onBookDemo }) {
       {/* Mobile drawer */}
       {mobileOpen && (
         <div className="mobile-drawer" style={{
-          position: 'fixed', top: 68, left: 0, right: 0,
+          position: 'fixed', top: 68, left: 0, right: 0, bottom: 0,
           background: 'rgba(8,8,26,0.97)',
           backdropFilter: 'blur(24px)',
           borderBottom: '1px solid rgba(255,255,255,0.07)',
           padding: '24px 24px 32px',
+          overflowY: 'auto',
           zIndex: 199,
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 24 }}>
-            {links.map(l => (
+            {(links || [
+              { label: 'Market Research', href: '/products/market-research' },
+              { label: 'LiveAgent', href: '/products/liveagent' },
+              { label: 'About', href: '/about' },
+              { label: 'Contact', href: '/contact' },
+            ]).map(l => (
               <a key={l.label} href={l.href} onClick={() => setMobileOpen(false)} style={{ padding: '13px 12px', borderRadius: 10, fontSize: 17, fontFamily: 'var(--fh)', fontWeight: 600, color: 'var(--text-2)', display: 'block', transition: 'background 0.15s, color 0.15s' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'var(--text-1)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-2)'; }}
@@ -247,7 +337,7 @@ export default function NavBar({ onBookDemo }) {
             ))}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {PORTALS.map(portal => (
+            {PORTALS.filter(p => !p.disabled).map(portal => (
               <a key={portal.key} href={portal.href} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 14px', borderRadius: 12, border: '1px solid var(--border)', background: 'rgba(255,255,255,0.03)', textDecoration: 'none' }}>
                 <div style={{ width: 34, height: 34, borderRadius: 9, background: portal.grad, border: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{portal.icon}</div>
                 <div>
@@ -257,7 +347,7 @@ export default function NavBar({ onBookDemo }) {
               </a>
             ))}
             <button onClick={() => { onBookDemo(); setMobileOpen(false); }} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15, padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer', marginTop: 4, boxShadow: '0 0 28px rgba(124,58,237,0.4)' }}>
-              Book a Demo
+              {resolvedCta}
             </button>
           </div>
         </div>

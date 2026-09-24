@@ -1,33 +1,33 @@
 const cols = [
   {
-    title: 'Product',
+    title: 'Products',
     links: [
-      { label: 'Platform Capabilities', href: '#features' },
-      { label: 'How It Works', href: '#howitworks' },
-      { label: 'Ask Rishi', href: '#rishi' },
-      { label: 'Product Overview', href: '#product' },
-      { label: 'Book a Demo', href: '#cta' },
+      { label: 'Market Research', href: '/products/market-research' },
+      { label: 'LiveAgent', href: '/products/liveagent' },
+      { label: 'Compare Products', href: '/products' },
     ],
   },
   {
-    title: 'Solutions',
+    title: 'Market Research',
     links: [
-      { label: 'CX Teams', href: '#personas' },
-      { label: 'UX Research', href: '#personas' },
-      { label: 'Product Managers', href: '#personas' },
-      { label: 'Strategy & Leadership', href: '#personas' },
+      { label: 'Platform Capabilities', href: '/products/market-research#features' },
+      { label: 'How It Works', href: '/products/market-research#howitworks' },
+      { label: 'Ask Rishi', href: '/products/market-research#rishi' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'LiveAgent',
     links: [
-      { label: 'Help Centre', href: 'mailto:sales@rikai.tech' },
-      { label: 'Contact', href: 'mailto:sales@rikai.tech' },
+      { label: 'Overview', href: '/products/liveagent#la-hero' },
+      { label: 'How It Works', href: '/products/liveagent#how-it-works' },
+      { label: 'Integrations', href: '/products/liveagent#knowledge' },
     ],
   },
   {
     title: 'Company',
     links: [
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
       { label: 'Trust Center', href: '/trust' },
       { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Terms of Service', href: '/terms' },
@@ -45,8 +45,8 @@ export default function FooterSection() {
               <img src="/uploads/logo_upload-1776774656314.png" alt="Rik AI" style={{ height: 36 }} />
               <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 20 }}>Rik<span className="gt">.ai</span></span>
             </div>
-            <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.8, maxWidth: 240, marginBottom: 8 }}>Transforming customer feedback into clear, confident action — for teams that move fast and want to understand their customers deeply.</p>
-            <p style={{ fontSize: 12, color: 'rgba(167,139,250,0.4)' }}>A new era of customer understanding.</p>
+            <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.8, maxWidth: 240, marginBottom: 8 }}>Understand your customers. Take care of them, too. Two AI product lines, one conviction.</p>
+            <p style={{ fontSize: 12, color: 'rgba(167,139,250,0.4)' }}>Inspired by knowledge. Built for clarity.</p>
           </div>
           {cols.map(col => (
             <div key={col.title}>

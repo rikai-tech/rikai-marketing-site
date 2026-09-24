@@ -164,6 +164,9 @@ a { color: inherit; text-decoration: none; }
   .mobile-drawer { display: block !important; }
   .nav-desktop-only { display: none !important; }
   .shift-table { font-size: 13px !important; }
+  .product-paths-grid { grid-template-columns: 1fr !important; }
+  .not-avatar-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .action-steps { grid-template-columns: 1fr 1fr 1fr !important; }
 }
 
 /* Mobile */
@@ -194,4 +197,5 @@ a { color: inherit; text-decoration: none; }
   .usecase-grid { padding: 28px 20px !important; }
   .preview-tabs { gap: 6px !important; }
   .preview-tabs button { font-size: 13px !important; padding: 9px 16px !important; }
+  .action-steps { grid-template-columns: 1fr !important; }
 }

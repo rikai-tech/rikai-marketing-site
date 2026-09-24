@@ -19,7 +19,7 @@ function formatSlotShort(slot) {
 
 // ─── Email templates ──────────────────────────────────────────────────────────
 
-function teamEmailHTML({ name, company, email, phone, slots, guests, notes }) {
+function teamEmailHTML({ name, company, email, phone, slots, guests, notes, product }) {
   const slotsHTML = slots.map((s, i) => `
     <tr>
       <td style="padding:10px 16px 10px 0;vertical-align:top;white-space:nowrap">
@@ -52,7 +52,7 @@ function teamEmailHTML({ name, company, email, phone, slots, guests, notes }) {
 
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#7c3aed,#4f6ef7);border-radius:12px 12px 0 0;padding:24px 32px">
-      <p style="margin:0 0 4px;color:rgba(255,255,255,0.65);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">⚡ New Demo Request</p>
+      <p style="margin:0 0 4px;color:rgba(255,255,255,0.65);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">⚡ New ${product || 'Market Research'} Demo Request</p>
       <h1 style="margin:0;color:#fff;font-size:24px;font-weight:800;letter-spacing:-.5px">${name}</h1>
       <p style="margin:4px 0 0;color:rgba(255,255,255,0.8);font-size:15px">${company}</p>
     </div>
@@ -228,9 +228,9 @@ async function upsertHubSpotContact({ name, company, email, phone, consent }) {
   return null;
 }
 
-async function createHubSpotDeal({ name, company, slots, notes, guests, contactId }) {
+async function createHubSpotDeal({ name, company, slots, notes, guests, contactId, product }) {
   const slotsSummary = slots.map((s, i) => `#${i + 1}: ${formatSlotShort(s)}`).join(' | ');
-  const parts = [`Preferred slots: ${slotsSummary}`];
+  const parts = [`Product: ${product || 'Market Research'}`, `Preferred slots: ${slotsSummary}`];
   if (guests?.length) parts.push(`Guests: ${guests.join(', ')}`);
   if (notes) parts.push(`Notes: ${notes}`);
 
@@ -240,7 +240,7 @@ async function createHubSpotDeal({ name, company, slots, notes, guests, contactI
 
   const deal = await hubspotRequest('/crm/v3/objects/deals', 'POST', {
     properties: {
-      dealname: `Demo Request — ${name} (${company})`,
+      dealname: `${product || 'Market Research'} Demo Request — ${name} (${company})`,
       dealstage: 'appointmentscheduled',
       pipeline: 'default',
       description: parts.join('\n\n'),
@@ -278,7 +278,7 @@ async function createHubSpotNote({ slots, guests, notes, contactId, dealId }) {
 
 export async function POST(request) {
   try {
-    const { name, company, email, phone, slots, guests, notes, consent } = await request.json();
+    const { name, company, email, phone, slots, guests, notes, consent, product } = await request.json();
 
     const fromAddress = process.env.RESEND_FROM_ADDRESS || 'Rik AI <noreply@rikai.tech>';
     const toAddress = process.env.BOOKING_NOTIFY_EMAIL || 'sales@rikai.tech';
@@ -290,8 +290,8 @@ export async function POST(request) {
       resend.emails.send({
         from: fromAddress,
         to: [toAddress],
-        subject: `New Demo Request — ${name} (${company})`,
-        html: teamEmailHTML({ name, company, email, phone, slots, guests: guests || [], notes }),
+        subject: `New ${product || 'Market Research'} Demo Request — ${name} (${company})`,
+        html: teamEmailHTML({ name, company, email, phone, slots, guests: guests || [], notes, product }),
       }),
 
       // Confirmation to prospect + guests
@@ -306,7 +306,7 @@ export async function POST(request) {
       // HubSpot CRM
       (async () => {
         const contactId = await upsertHubSpotContact({ name, company, email, phone, consent });
-        const deal = await createHubSpotDeal({ name, company, slots, notes, guests, contactId });
+        const deal = await createHubSpotDeal({ name, company, slots, notes, guests, contactId, product });
         await createHubSpotNote({ slots, guests, notes, contactId, dealId: deal?.id || null });
       })(),
     ]);
