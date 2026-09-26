@@ -56,7 +56,7 @@ export default function ContactPage() {
       <NavBar onBookDemo={() => (window.location.href = '/products')} />
       <main>
         <section className="section-pad" style={{ paddingTop: 140 }}>
-          <div className="container" style={{ maxWidth: 980, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64 }}>
+          <div className="container not-avatar-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64 }}>
 
             {/* Left — copy + direct contacts */}
             <div className="fu">

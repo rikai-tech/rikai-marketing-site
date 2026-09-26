@@ -7,9 +7,14 @@ import BookDemoModal from '@/components/BookDemoModal';
 import SLabel from '@/components/SLabel';
 
 const BELIEFS = [
-  'Insights and answers should arrive at the speed of the question, not weeks later.',
-  'Automation should never mean losing the human thread — the goal is a better handoff, not no handoff.',
-  'Your data — your research, your knowledge, your transcripts — is yours.',
+  { title: 'Speed of the question', body: 'Insights and answers should arrive at the speed of the question, not weeks later.', color: '#c4b5fd' },
+  { title: 'A better hand-off', body: 'Automation should never mean losing the human thread — the goal is a better hand-off, not no hand-off.', color: '#818cf8' },
+  { title: 'Your data is yours', body: 'Your research, your knowledge, your transcripts — always yours.', color: '#34d399' },
+];
+
+const PRODUCTS = [
+  { name: 'Market Research', tagline: 'Understand your customers, deeply and continuously.', href: '/products/market-research', color: '#c4b5fd' },
+  { name: 'LiveAgent', tagline: 'Be there for your customers, live, the moment they ask.', href: '/products/liveagent', color: '#818cf8' },
 ];
 
 export default function AboutPage() {
@@ -28,54 +33,94 @@ export default function AboutPage() {
     <>
       <NavBar onBookDemo={() => setShowBookDemo(true)} />
       <main>
+        {/* Hero: headline left, listen/respond cards right */}
         <section className="section-pad" style={{ paddingTop: 140 }}>
-          <div className="container fu" style={{ maxWidth: 720 }}>
-            <SLabel>About rik.ai</SLabel>
-            <h1 className="section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', marginBottom: 28, color: 'var(--text-1)' }}>
-              Customer experience has two moments that matter.
-            </h1>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 18, marginBottom: 40 }}>
-              <div style={{ padding: '20px 24px', borderRadius: 14, border: '1px solid var(--border)', background: 'rgba(124,58,237,0.04)' }}>
-                <p style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 16, color: '#c4b5fd', marginBottom: 6 }}>When you listen.</p>
-                <p style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.7 }}>Understand what your customers think, need, and feel.</p>
-              </div>
-              <div style={{ padding: '20px 24px', borderRadius: 14, border: '1px solid var(--border)', background: 'rgba(79,110,247,0.05)' }}>
-                <p style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 16, color: '#818cf8', marginBottom: 6 }}>When you respond.</p>
-                <p style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.7 }}>Be there when they need an answer.</p>
-              </div>
+          <div className="container not-avatar-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 64, alignItems: 'center' }}>
+            <div className="fu">
+              <SLabel>About rik.ai</SLabel>
+              <h1 className="section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', marginBottom: 20, color: 'var(--text-1)' }}>
+                Customer experience has two moments that matter.
+              </h1>
+              <p style={{ fontSize: 16.5, color: 'var(--text-2)', lineHeight: 1.8, marginBottom: 12 }}>
+                rik.ai builds AI for both — understanding what customers think, and being there when they need an answer.
+              </p>
             </div>
 
-            <p style={{ fontSize: 17, color: 'var(--text-1)', fontFamily: 'var(--fh)', fontWeight: 600, marginBottom: 48 }}>rik.ai builds AI for both.</p>
+            <div className="fu d1" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ padding: '22px 26px', borderRadius: 16, border: '1px solid var(--border)', background: 'rgba(124,58,237,0.05)' }}>
+                <p style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 17, color: '#c4b5fd', marginBottom: 8 }}>When you listen.</p>
+                <p style={{ fontSize: 14.5, color: 'var(--text-2)', lineHeight: 1.7 }}>Understand what your customers think, need, and feel.</p>
+              </div>
+              <div style={{ padding: '22px 26px', borderRadius: 16, border: '1px solid var(--border)', background: 'rgba(79,110,247,0.06)' }}>
+                <p style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 17, color: '#818cf8', marginBottom: 8 }}>When you respond.</p>
+                <p style={{ fontSize: 14.5, color: 'var(--text-2)', lineHeight: 1.7 }}>Be there when they need an answer.</p>
+              </div>
+              <p style={{ fontSize: 15, color: 'var(--text-1)', fontFamily: 'var(--fh)', fontWeight: 600 }}>rik.ai builds AI for both.</p>
+            </div>
+          </div>
+        </section>
 
-            <p style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.85, marginBottom: 18 }}>
+        {/* Story */}
+        <section style={{ paddingBottom: 80 }}>
+          <div className="container" style={{ maxWidth: 900 }}>
+            <p className="fu" style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.85, marginBottom: 18 }}>
               rik.ai started with a simple observation: businesses were drowning in customer signal — surveys, reviews, support tickets, calls — and starving for what to do about it. We built Market Research to turn that signal into decisions teams could act on the same day.
             </p>
-            <p style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.85, marginBottom: 18 }}>
+            <p className="fu d1" style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.85, marginBottom: 18 }}>
               The more we talked to customers, the clearer a second gap became: understanding your customers is only half the job. The other half is showing up for them, in the moment they need you — with an answer, not a queue. That&apos;s LiveAgent: an AI support agent that lives on your website, grounded in your own knowledge, that resolves what it can and hands off to a person when it should.
             </p>
-            <p style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.85, marginBottom: 48 }}>
+            <p className="fu d2" style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.85 }}>
               Both products share the same conviction: AI should make customer understanding and customer care faster and more human, not more automated-feeling. Real conversations. Real knowledge. Decisions and resolutions your team can actually stand behind.
             </p>
+          </div>
+        </section>
 
-            <p style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.04em' }}>What we believe</p>
-            <ul style={{ margin: '0 0 48px', padding: 0, listStyle: 'none' }}>
-              {BELIEFS.map(b => (
-                <li key={b} style={{ display: 'flex', gap: 12, marginBottom: 12, fontSize: 15, color: 'var(--text-2)', lineHeight: 1.7 }}>
-                  <span style={{ color: 'var(--purple-light)', flexShrink: 0 }}>—</span>{b}
-                </li>
+        {/* What we believe — grid */}
+        <section className="section-pad" style={{ borderTop: '1px solid var(--border)', background: 'rgba(255,255,255,0.012)' }}>
+          <div className="container">
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <SLabel>What We Believe</SLabel>
+              <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px' }}>The principles behind both products</h2>
+            </div>
+            <div className="problem-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+              {BELIEFS.map((b, i) => (
+                <div key={b.title} className={`fu d${i + 1}`} style={{ padding: '28px 24px', background: 'var(--card)', borderRadius: 'var(--r)', border: '1px solid var(--border)' }}>
+                  <h3 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 16, marginBottom: 10, color: b.color }}>{b.title}</h3>
+                  <p style={{ fontSize: 13.5, color: 'var(--text-2)', lineHeight: 1.75 }}>{b.body}</p>
+                </div>
               ))}
-            </ul>
+            </div>
+          </div>
+        </section>
 
-            <p style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Our products</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 48 }}>
-              <p style={{ fontSize: 15.5, color: 'var(--text-2)' }}><strong style={{ color: 'var(--text-1)' }}>Market Research</strong> — understand your customers, deeply and continuously.</p>
-              <p style={{ fontSize: 15.5, color: 'var(--text-2)' }}><strong style={{ color: 'var(--text-1)' }}>LiveAgent</strong> — be there for your customers, live, the moment they ask.</p>
+        {/* Our products */}
+        <section className="section-pad">
+          <div className="container">
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <SLabel>Our Products</SLabel>
+              <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px' }}>Two products, one conviction</h2>
+            </div>
+            <div className="product-paths-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 56 }}>
+              {PRODUCTS.map((p, i) => (
+                <a key={p.name} href={p.href} className={`fu d${i + 1}`} style={{
+                  display: 'block', padding: '32px 30px', borderRadius: 20, border: '1px solid var(--border)',
+                  background: 'linear-gradient(160deg, rgba(255,255,255,0.03), rgba(255,255,255,0.005))',
+                  textDecoration: 'none', transition: 'transform 0.2s, border-color 0.2s',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = p.color + '50'; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border)'; }}
+                >
+                  <h3 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 20, marginBottom: 10, color: p.color }}>{p.name}</h3>
+                  <p style={{ fontSize: 14.5, color: 'var(--text-2)', lineHeight: 1.7, marginBottom: 16 }}>{p.tagline}</p>
+                  <span style={{ fontSize: 13.5, fontFamily: 'var(--fh)', fontWeight: 600, color: 'var(--text-1)' }}>Learn more →</span>
+                </a>
+              ))}
             </div>
 
-            <p style={{ fontSize: 14, color: 'rgba(167,139,250,0.6)', marginBottom: 40 }}>Inspired by knowledge. Built for clarity.</p>
-
-            <a href="/products" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', borderRadius: 12, background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 14.5 }}>See our products →</a>
+            <div className="fu" style={{ textAlign: 'center' }}>
+              <p style={{ fontSize: 14, color: 'rgba(167,139,250,0.6)', marginBottom: 28 }}>Inspired by knowledge. Built for clarity.</p>
+              <a href="/products" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', borderRadius: 12, background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 14.5 }}>See our products →</a>
+            </div>
           </div>
         </section>
       </main>

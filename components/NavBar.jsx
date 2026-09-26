@@ -51,22 +51,6 @@ const PRODUCTS_DROPDOWN = [
   { key: 'liveagent', label: 'LiveAgent', sub: 'Take care of your customers', href: '/products/liveagent' },
 ];
 
-const LOCAL_LINKS = {
-  'market-research': [
-    { label: 'Platform', href: '/products/market-research#features' },
-    { label: 'Ask Rishi', href: '/products/market-research#rishi' },
-    { label: 'Solutions', href: '/products/market-research#personas' },
-    { label: 'Product', href: '/products/market-research#product' },
-  ],
-  liveagent: [
-    { label: 'Overview', href: '/products/liveagent#la-hero' },
-    { label: 'How It Works', href: '/products/liveagent#how-it-works' },
-    { label: 'Security', href: '/products/liveagent#governed' },
-    { label: 'Traceability', href: '/products/liveagent#traceable' },
-    { label: "Who It's For", href: '/products/liveagent#who-for' },
-  ],
-};
-
 const GLOBAL_CTA = { 'market-research': 'Book a Market Research Demo', liveagent: 'Book a LiveAgent Demo' };
 
 export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
@@ -92,7 +76,6 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
     return () => document.removeEventListener('mousedown', fn);
   }, []);
 
-  const links = LOCAL_LINKS[activeProduct] || null;
   const resolvedCta = ctaLabel || GLOBAL_CTA[activeProduct] || 'Book a Demo';
 
   const navStyle = {
@@ -122,58 +105,48 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
       </a>
 
       <div className="nav-links" style={{ display: 'flex', gap: '36px', alignItems: 'center' }}>
-        {links ? (
-          links.map(l => (
-            <a key={l.label} href={l.href} style={linkStyle}
-              onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-            >{l.label}</a>
-          ))
-        ) : (
-          <>
-            <div ref={productsRef} style={{ position: 'relative' }}>
-              <button
-                onClick={() => setProductsOpen(o => !o)}
-                style={{ ...linkStyle, background: 'none', border: 'none', padding: 0, display: 'flex', alignItems: 'center', gap: 5 }}
-                onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-              >
-                Products
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ transition: 'transform 0.2s', transform: productsOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}>
-                  <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              {productsOpen && (
-                <div style={{
-                  position: 'absolute', top: 'calc(100% + 14px)', left: '50%', transform: 'translateX(-50%)',
-                  width: 270, background: '#0d0d20', border: '1px solid rgba(124,58,237,0.2)', borderRadius: 16,
-                  boxShadow: '0 32px 80px rgba(0,0,0,0.7)', overflow: 'hidden', zIndex: 300, padding: 8,
-                }}>
-                  {PRODUCTS_DROPDOWN.map(p => (
-                    <a key={p.key} href={p.href} onClick={() => setProductsOpen(false)} style={{
-                      display: 'block', padding: '12px 14px', borderRadius: 10, textDecoration: 'none',
-                      transition: 'background 0.15s',
-                    }}
-                      onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.1)'}
-                      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-                    >
-                      <div style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', marginBottom: 2 }}>{p.label}</div>
-                      <div style={{ fontSize: 12, color: 'var(--text-3)' }}>{p.sub}</div>
-                    </a>
-                  ))}
-                </div>
-              )}
+        <div ref={productsRef} style={{ position: 'relative' }}>
+          <button
+            onClick={() => setProductsOpen(o => !o)}
+            style={{ ...linkStyle, background: 'none', border: 'none', padding: 0, display: 'flex', alignItems: 'center', gap: 5 }}
+            onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
+            onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+          >
+            Products
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ transition: 'transform 0.2s', transform: productsOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}>
+              <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          {productsOpen && (
+            <div style={{
+              position: 'absolute', top: 'calc(100% + 14px)', left: '50%', transform: 'translateX(-50%)',
+              width: 270, background: '#0d0d20', border: '1px solid rgba(124,58,237,0.2)', borderRadius: 16,
+              boxShadow: '0 32px 80px rgba(0,0,0,0.7)', overflow: 'hidden', zIndex: 300, padding: 8,
+            }}>
+              {PRODUCTS_DROPDOWN.map(p => (
+                <a key={p.key} href={p.href} onClick={() => setProductsOpen(false)} style={{
+                  display: 'block', padding: '12px 14px', borderRadius: 10, textDecoration: 'none',
+                  background: activeProduct === p.key ? 'rgba(124,58,237,0.12)' : 'transparent',
+                  transition: 'background 0.15s',
+                }}
+                  onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.1)'}
+                  onMouseLeave={e => e.currentTarget.style.background = activeProduct === p.key ? 'rgba(124,58,237,0.12)' : 'transparent'}
+                >
+                  <div style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', marginBottom: 2 }}>{p.label}</div>
+                  <div style={{ fontSize: 12, color: 'var(--text-3)' }}>{p.sub}</div>
+                </a>
+              ))}
             </div>
-            <a href="/about" style={linkStyle}
-              onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-            >About</a>
-            <a href="/contact" style={linkStyle}
-              onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-            >Contact</a>
-          </>
-        )}
+          )}
+        </div>
+        <a href="/about" style={linkStyle}
+          onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+        >About</a>
+        <a href="/contact" style={linkStyle}
+          onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+        >Contact</a>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -324,12 +297,12 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
           zIndex: 199,
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 24 }}>
-            {(links || [
+            {[
               { label: 'Market Research', href: '/products/market-research' },
               { label: 'LiveAgent', href: '/products/liveagent' },
               { label: 'About', href: '/about' },
               { label: 'Contact', href: '/contact' },
-            ]).map(l => (
+            ].map(l => (
               <a key={l.label} href={l.href} onClick={() => setMobileOpen(false)} style={{ padding: '13px 12px', borderRadius: 10, fontSize: 17, fontFamily: 'var(--fh)', fontWeight: 600, color: 'var(--text-2)', display: 'block', transition: 'background 0.15s, color 0.15s' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'var(--text-1)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-2)'; }}

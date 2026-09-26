@@ -1,21 +1,37 @@
 import SLabel from '@/components/SLabel';
 
+const HIGHLIGHTS = [
+  { label: 'Natural', body: 'A real conversation, not a decision tree.' },
+  { label: 'Grounded', body: 'Answers pulled from your approved knowledge.' },
+  { label: 'Governed', body: 'Actions checked before anything happens.' },
+];
+
 // Illustrative mockup only. The redesign proposal (§13, section 02) calls for
 // an actual recorded LiveAgent conversation here — replace this static mockup
 // with that real demo asset once it's captured. Do not present this as a
 // real product screenshot.
 export default function LAExperience() {
   return (
-    <section id="experience" className="section-pad" style={{ position: 'relative' }}>
-      <div className="container" style={{ textAlign: 'center' }}>
-        <SLabel color="#818cf8">The Experience</SLabel>
-        <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', marginBottom: 48 }}>
-          A real conversation,<br /><span className="gt">powered by a real agent.</span>
-        </h2>
+    <section id="experience" className="section-pad">
+      <div className="container not-avatar-grid" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 64, alignItems: 'center' }}>
+        <div className="fu">
+          <SLabel color="#818cf8">The Experience</SLabel>
+          <h2 className="section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 20 }}>
+            A real conversation,<br /><span className="gt">powered by a real agent.</span>
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            {HIGHLIGHTS.map(h => (
+              <div key={h.label} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                <span style={{ padding: '4px 12px', borderRadius: 100, fontSize: 11, fontWeight: 700, color: '#818cf8', background: 'rgba(79,110,247,0.12)', border: '1px solid rgba(79,110,247,0.25)', fontFamily: 'var(--fh)', flexShrink: 0, marginTop: 2 }}>{h.label}</span>
+                <span style={{ fontSize: 14.5, color: 'var(--text-2)', lineHeight: 1.6 }}>{h.body}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className="fu d1" style={{
-          maxWidth: 560, margin: '0 auto', borderRadius: 20, border: '1px solid rgba(79,110,247,0.3)',
-          background: '#0d0d20', overflow: 'hidden', boxShadow: '0 32px 80px rgba(0,0,0,0.55)', textAlign: 'left',
+          borderRadius: 20, border: '1px solid rgba(79,110,247,0.3)',
+          background: '#0d0d20', overflow: 'hidden', boxShadow: '0 32px 80px rgba(0,0,0,0.55)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '14px 20px', borderBottom: '1px solid var(--border)' }}>
             <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#22c55e' }} />
@@ -32,11 +48,12 @@ export default function LAExperience() {
               &quot;It shipped yesterday via express delivery and should arrive by Thursday. Want me to send tracking to your email?&quot;
             </div>
           </div>
+          <div style={{ padding: '10px 22px 18px' }}>
+            <p style={{ fontSize: 12, color: 'var(--text-3)' }}>
+              Illustrative conversation. <a href="/contact" style={{ color: '#a78bfa' }}>See LiveAgent live →</a>
+            </p>
+          </div>
         </div>
-
-        <p className="fu d2" style={{ fontSize: 13, color: 'var(--text-3)', marginTop: 24 }}>
-          Illustrative conversation. <a href="/contact" style={{ color: '#a78bfa' }}>See LiveAgent live →</a>
-        </p>
       </div>
     </section>
   );
