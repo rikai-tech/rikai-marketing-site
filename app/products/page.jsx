@@ -7,9 +7,9 @@ import BookDemoModal from '@/components/BookDemoModal';
 import SLabel from '@/components/SLabel';
 
 const ROWS = [
-  ['Understand customer needs', 'Market Research', ''],
-  ['Analyse qualitative feedback', 'Market Research', ''],
-  ['Run AI-powered interviews', 'Market Research', ''],
+  ['Understand customer needs', 'Voice', ''],
+  ['Analyse qualitative feedback', 'Voice', ''],
+  ['Run AI-powered interviews', 'Voice', ''],
   ['Answer customer questions', '', 'LiveAgent'],
   ['Automate first-line support', '', 'LiveAgent'],
   ['Escalate conversations to humans', '', 'LiveAgent'],
@@ -17,7 +17,7 @@ const ROWS = [
 
 export default function ProductsPage() {
   const [showBookDemo, setShowBookDemo] = useState(false);
-  const [demoProduct, setDemoProduct] = useState('Market Research');
+  const [demoProduct, setDemoProduct] = useState('Voice');
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -46,11 +46,11 @@ export default function ProductsPage() {
             <div className="product-paths-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, marginBottom: 72 }}>
               <div className="fu" style={{ padding: '40px 36px', borderRadius: 22, border: '1px solid var(--border)', background: 'linear-gradient(160deg, rgba(124,58,237,0.06), rgba(124,58,237,0.01))' }}>
                 <span style={{ fontSize: 12, fontWeight: 700, color: '#c4b5fd', fontFamily: 'var(--fh)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 14 }}>Understand them</span>
-                <h2 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 26, marginBottom: 14, color: 'var(--text-1)' }}>Market Research</h2>
+                <h2 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 26, marginBottom: 14, color: 'var(--text-1)' }}>Voice</h2>
                 <p style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.75, marginBottom: 26 }}>
                   Your customers are already telling you what they think, need, and feel. Turn those conversations into insight and action.
                 </p>
-                <a href="/products/market-research" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 12, background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 14 }}>Explore Market Research →</a>
+                <a href="/products/voice" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 12, background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 14 }}>Explore Voice →</a>
               </div>
               <div className="fu d1" style={{ padding: '40px 36px', borderRadius: 22, border: '1px solid var(--border)', background: 'linear-gradient(160deg, rgba(79,110,247,0.08), rgba(79,110,247,0.01))' }}>
                 <span style={{ fontSize: 12, fontWeight: 700, color: '#818cf8', fontFamily: 'var(--fh)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 14 }}>Take care of them</span>

@@ -13,7 +13,7 @@ const BELIEFS = [
 ];
 
 const PRODUCTS = [
-  { name: 'Market Research', tagline: 'Understand your customers, deeply and continuously.', href: '/products/market-research', color: '#c4b5fd' },
+  { name: 'Voice', tagline: 'Understand your customers, deeply and continuously.', href: '/products/voice', color: '#c4b5fd' },
   { name: 'LiveAgent', tagline: 'Be there for your customers, live, the moment they ask.', href: '/products/liveagent', color: '#818cf8' },
 ];
 
@@ -64,7 +64,7 @@ export default function AboutPage() {
         <section style={{ paddingBottom: 80 }}>
           <div className="container" style={{ maxWidth: 900 }}>
             <p className="fu" style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.85, marginBottom: 18 }}>
-              rik.ai started with a simple observation: businesses were drowning in customer signal — surveys, reviews, support tickets, calls — and starving for what to do about it. We built Market Research to turn that signal into decisions teams could act on the same day.
+              rik.ai started with a simple observation: businesses were drowning in customer signal — surveys, reviews, support tickets, calls — and starving for what to do about it. We built Voice to turn that signal into decisions teams could act on the same day.
             </p>
             <p className="fu d1" style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.85, marginBottom: 18 }}>
               The more we talked to customers, the clearer a second gap became: understanding your customers is only half the job. The other half is showing up for them, in the moment they need you — with an answer, not a queue. That&apos;s LiveAgent: an AI support agent that lives on your website, grounded in your own knowledge, that resolves what it can and hands off to a person when it should.

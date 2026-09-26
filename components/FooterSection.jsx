@@ -2,17 +2,17 @@ const cols = [
   {
     title: 'Products',
     links: [
-      { label: 'Market Research', href: '/products/market-research' },
+      { label: 'Voice', href: '/products/voice' },
       { label: 'LiveAgent', href: '/products/liveagent' },
       { label: 'Compare Products', href: '/products' },
     ],
   },
   {
-    title: 'Market Research',
+    title: 'Voice',
     links: [
-      { label: 'Platform Capabilities', href: '/products/market-research#features' },
-      { label: 'How It Works', href: '/products/market-research#howitworks' },
-      { label: 'Ask Rishi', href: '/products/market-research#rishi' },
+      { label: 'Platform Capabilities', href: '/products/voice#features' },
+      { label: 'How It Works', href: '/products/voice#howitworks' },
+      { label: 'Ask Rishi', href: '/products/voice#rishi' },
     ],
   },
   {

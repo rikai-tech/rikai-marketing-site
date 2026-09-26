@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from 'react';
 const PORTALS = [
   {
     key: 'voice',
-    label: 'Voice Portal',
-    sub: 'For Survey Respondents',
-    desc: 'Join a research study, complete a survey, or share your feedback.',
-    href: 'https://survey.rikai.tech',
+    label: 'Voice',
+    sub: 'Sign in to Voice',
+    desc: 'Run studies, manage projects, and view your customer intelligence workspace.',
+    href: 'https://voice.rikai.tech',
     grad: 'linear-gradient(135deg,rgba(124,58,237,0.3),rgba(79,110,247,0.2))',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -17,11 +17,11 @@ const PORTALS = [
     ),
   },
   {
-    key: 'customer',
-    label: 'Customer Portal',
-    sub: 'For Teams & Organisations',
-    desc: 'Access your Rik AI workspace, manage projects, and view insights.',
-    href: 'https://customer.rikai.tech',
+    key: 'liveagent',
+    label: 'LiveAgent',
+    sub: 'Sign in to LiveAgent',
+    desc: 'Configure and manage your LiveAgent support agents.',
+    href: 'https://liveagent.rikai.tech',
     grad: 'linear-gradient(135deg,rgba(79,110,247,0.3),rgba(124,58,237,0.15))',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -30,36 +30,22 @@ const PORTALS = [
       </svg>
     ),
   },
-  {
-    key: 'liveagent-admin',
-    label: 'LiveAgent Admin Console',
-    sub: 'Coming soon',
-    desc: 'Configure and manage your LiveAgent support agents.',
-    href: '#',
-    disabled: true,
-    grad: 'linear-gradient(135deg,rgba(245,158,11,0.25),rgba(124,58,237,0.15))',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v1"/>
-      </svg>
-    ),
-  },
 ];
 
-const PRODUCTS_DROPDOWN = [
-  { key: 'market-research', label: 'Market Research', sub: 'Understand your customers', href: '/products/market-research' },
-  { key: 'liveagent', label: 'LiveAgent', sub: 'Take care of your customers', href: '/products/liveagent' },
+const NAV_LINKS = [
+  { key: 'voice', label: 'Voice', href: '/products/voice' },
+  { key: 'liveagent', label: 'LiveAgent', href: '/products/liveagent' },
+  { key: 'about', label: 'About', href: '/about' },
+  { key: 'contact', label: 'Contact', href: '/contact' },
 ];
 
-const GLOBAL_CTA = { 'market-research': 'Book a Market Research Demo', liveagent: 'Book a LiveAgent Demo' };
+const GLOBAL_CTA = { voice: 'Book a Voice Demo', liveagent: 'Book a LiveAgent Demo' };
 
 export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
   const [scrolled, setScrolled] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const signInRef = useRef(null);
-  const productsRef = useRef(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -70,7 +56,6 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
   useEffect(() => {
     const fn = (e) => {
       if (signInRef.current && !signInRef.current.contains(e.target)) setSignInOpen(false);
-      if (productsRef.current && !productsRef.current.contains(e.target)) setProductsOpen(false);
     };
     document.addEventListener('mousedown', fn);
     return () => document.removeEventListener('mousedown', fn);
@@ -89,11 +74,11 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
     transition: 'all 0.35s ease',
   };
 
-  const linkStyle = {
-    color: 'rgba(240,240,255,0.68)', fontSize: '15px',
-    fontFamily: 'var(--fb)', fontWeight: 450,
-    transition: 'color 0.2s', cursor: 'pointer',
-  };
+  const linkStyle = (isActive) => ({
+    color: isActive ? '#f0f0ff' : 'rgba(240,240,255,0.68)', fontSize: '15px',
+    fontFamily: 'var(--fb)', fontWeight: isActive ? 600 : 450,
+    transition: 'color 0.2s', cursor: 'pointer', textDecoration: 'none',
+  });
 
   return (
     <nav style={navStyle}>
@@ -105,48 +90,12 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
       </a>
 
       <div className="nav-links" style={{ display: 'flex', gap: '36px', alignItems: 'center' }}>
-        <div ref={productsRef} style={{ position: 'relative' }}>
-          <button
-            onClick={() => setProductsOpen(o => !o)}
-            style={{ ...linkStyle, background: 'none', border: 'none', padding: 0, display: 'flex', alignItems: 'center', gap: 5 }}
-            onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-          >
-            Products
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ transition: 'transform 0.2s', transform: productsOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}>
-              <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          {productsOpen && (
-            <div style={{
-              position: 'absolute', top: 'calc(100% + 14px)', left: '50%', transform: 'translateX(-50%)',
-              width: 270, background: '#0d0d20', border: '1px solid rgba(124,58,237,0.2)', borderRadius: 16,
-              boxShadow: '0 32px 80px rgba(0,0,0,0.7)', overflow: 'hidden', zIndex: 300, padding: 8,
-            }}>
-              {PRODUCTS_DROPDOWN.map(p => (
-                <a key={p.key} href={p.href} onClick={() => setProductsOpen(false)} style={{
-                  display: 'block', padding: '12px 14px', borderRadius: 10, textDecoration: 'none',
-                  background: activeProduct === p.key ? 'rgba(124,58,237,0.12)' : 'transparent',
-                  transition: 'background 0.15s',
-                }}
-                  onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.1)'}
-                  onMouseLeave={e => e.currentTarget.style.background = activeProduct === p.key ? 'rgba(124,58,237,0.12)' : 'transparent'}
-                >
-                  <div style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', marginBottom: 2 }}>{p.label}</div>
-                  <div style={{ fontSize: 12, color: 'var(--text-3)' }}>{p.sub}</div>
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-        <a href="/about" style={linkStyle}
-          onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-        >About</a>
-        <a href="/contact" style={linkStyle}
-          onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-        >Contact</a>
+        {NAV_LINKS.map(l => (
+          <a key={l.key} href={l.href} style={linkStyle(activeProduct === l.key)}
+            onMouseEnter={e => { if (activeProduct !== l.key) e.currentTarget.style.color = '#f0f0ff'; }}
+            onMouseLeave={e => { if (activeProduct !== l.key) e.currentTarget.style.color = 'rgba(240,240,255,0.68)'; }}
+          >{l.label}</a>
+        ))}
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -156,7 +105,7 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
           <button
             onClick={() => setSignInOpen(o => !o)}
             style={{
-              ...linkStyle,
+              ...linkStyle(false),
               padding: '8px 14px',
               background: 'none', border: 'none', cursor: 'pointer',
               display: 'flex', alignItems: 'center', gap: 6,
@@ -177,7 +126,7 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
           {signInOpen && (
             <div style={{
               position: 'absolute', top: 'calc(100% + 12px)', right: 0,
-              width: 310,
+              width: 300,
               background: '#0d0d20',
               border: '1px solid rgba(124,58,237,0.2)',
               borderRadius: 18,
@@ -199,9 +148,9 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
                   <a
                     key={portal.key}
                     href={portal.href}
-                    target={portal.disabled ? undefined : '_blank'}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => { if (portal.disabled) { e.preventDefault(); return; } setSignInOpen(false); }}
+                    onClick={() => setSignInOpen(false)}
                     style={{
                       display: 'flex', alignItems: 'flex-start', gap: 14,
                       padding: '14px 12px',
@@ -209,11 +158,9 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
                       textDecoration: 'none',
                       transition: 'background 0.15s',
                       background: 'transparent',
-                      opacity: portal.disabled ? 0.55 : 1,
-                      cursor: portal.disabled ? 'default' : 'pointer',
                       marginBottom: i < PORTALS.length - 1 ? 4 : 0,
                     }}
-                    onMouseEnter={e => { if (!portal.disabled) e.currentTarget.style.background = 'rgba(124,58,237,0.1)'; }}
+                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.1)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                   >
                     {/* Icon box */}
@@ -229,7 +176,7 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
                       <p style={{ margin: '0 0 3px', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', lineHeight: 1.3 }}>
                         {portal.label}
                       </p>
-                      <p style={{ margin: '0 0 6px', fontFamily: 'var(--fh)', fontSize: 11, fontWeight: 600, color: portal.disabled ? '#fcd34d' : '#a78bfa', lineHeight: 1.3, letterSpacing: '0.02em' }}>
+                      <p style={{ margin: '0 0 6px', fontFamily: 'var(--fh)', fontSize: 11, fontWeight: 600, color: '#a78bfa', lineHeight: 1.3, letterSpacing: '0.02em' }}>
                         {portal.sub}
                       </p>
                       <p style={{ margin: 0, fontFamily: 'var(--fb)', fontSize: 12, color: 'var(--text-3)', lineHeight: 1.65 }}>
@@ -238,11 +185,9 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
                     </div>
 
                     {/* Arrow */}
-                    {!portal.disabled && (
-                      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, opacity: 0.3, marginTop: 3 }}>
-                        <path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    )}
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, opacity: 0.3, marginTop: 3 }}>
+                      <path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </a>
                 ))}
               </div>
@@ -297,20 +242,15 @@ export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
           zIndex: 199,
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 24 }}>
-            {[
-              { label: 'Market Research', href: '/products/market-research' },
-              { label: 'LiveAgent', href: '/products/liveagent' },
-              { label: 'About', href: '/about' },
-              { label: 'Contact', href: '/contact' },
-            ].map(l => (
-              <a key={l.label} href={l.href} onClick={() => setMobileOpen(false)} style={{ padding: '13px 12px', borderRadius: 10, fontSize: 17, fontFamily: 'var(--fh)', fontWeight: 600, color: 'var(--text-2)', display: 'block', transition: 'background 0.15s, color 0.15s' }}
+            {NAV_LINKS.map(l => (
+              <a key={l.key} href={l.href} onClick={() => setMobileOpen(false)} style={{ padding: '13px 12px', borderRadius: 10, fontSize: 17, fontFamily: 'var(--fh)', fontWeight: 600, color: activeProduct === l.key ? 'var(--text-1)' : 'var(--text-2)', display: 'block', transition: 'background 0.15s, color 0.15s' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'var(--text-1)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-2)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = activeProduct === l.key ? 'var(--text-1)' : 'var(--text-2)'; }}
               >{l.label}</a>
             ))}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {PORTALS.filter(p => !p.disabled).map(portal => (
+            {PORTALS.map(portal => (
               <a key={portal.key} href={portal.href} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 14px', borderRadius: 12, border: '1px solid var(--border)', background: 'rgba(255,255,255,0.03)', textDecoration: 'none' }}>
                 <div style={{ width: 34, height: 34, borderRadius: 9, background: portal.grad, border: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{portal.icon}</div>
                 <div>

@@ -11,7 +11,7 @@ function ProductMockup() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20, width: '100%', maxWidth: 440 }}>
       <div style={{ borderRadius: 16, border: '1px solid rgba(124,58,237,0.25)', background: '#0d0d20', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 16px', borderBottom: '1px solid var(--border)' }}>
-          <span style={{ fontSize: 11, color: '#c4b5fd', fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '0.05em' }}>MARKET RESEARCH · ASK RISHI</span>
+          <span style={{ fontSize: 11, color: '#c4b5fd', fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '0.05em' }}>VOICE · ASK RISHI</span>
         </div>
         <div style={{ padding: '16px 18px' }}>
           <p style={{ fontSize: 13, color: 'var(--text-2)', marginBottom: 8 }}>"What's driving churn this month?"</p>

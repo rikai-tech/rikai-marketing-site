@@ -76,7 +76,7 @@ export default function ContactPage() {
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                <a href="/products/market-research" style={{ fontSize: 14, color: 'var(--text-2)' }}>→ Book a Market Research demo</a>
+                <a href="/products/voice" style={{ fontSize: 14, color: 'var(--text-2)' }}>→ Book a Voice demo</a>
                 <a href="/products/liveagent" style={{ fontSize: 14, color: 'var(--text-2)' }}>→ Book a LiveAgent demo</a>
               </div>
 
@@ -110,7 +110,7 @@ export default function ContactPage() {
                   <div>
                     <label style={labelStyle}>Which product?</label>
                     <select style={inputStyle} value={form.product} onChange={set('product')}>
-                      <option>Market Research</option>
+                      <option>Voice</option>
                       <option>LiveAgent</option>
                       <option>Not sure</option>
                     </select>

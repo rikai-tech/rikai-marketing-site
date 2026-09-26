@@ -8,7 +8,7 @@ import HomeClosingCTA from '@/components/home/HomeClosingCTA';
 import FooterSection from '@/components/FooterSection';
 import BookDemoModal from '@/components/BookDemoModal';
 
-// Portfolio homepage — rik.ai now has two product lines (Market Research and
+// Portfolio homepage — rik.ai now has two product lines (Voice and
 // LiveAgent). This page establishes the company story first, then routes to
 // each product. See the redesign proposal §12 ("Home page v3").
 export default function HomePage() {

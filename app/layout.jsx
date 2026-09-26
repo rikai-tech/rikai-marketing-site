@@ -17,10 +17,10 @@ const dmSans = DM_Sans({
 
 export const metadata = {
   title: 'rik.ai — Understand your customers. Take care of them, too.',
-  description: 'rik.ai builds AI products that help businesses understand what customers need and act on it when it matters — Market Research for customer intelligence, LiveAgent for grounded, governed AI support.',
+  description: 'rik.ai builds AI products that help businesses understand what customers need and act on it when it matters — Voice for customer intelligence, LiveAgent for grounded, governed AI support.',
   openGraph: {
     title: 'rik.ai — Understand your customers. Take care of them, too.',
-    description: 'Two AI product lines, one conviction: Market Research to understand your customers, LiveAgent to take care of them.',
+    description: 'Two AI product lines, one conviction: Voice to understand your customers, LiveAgent to take care of them.',
     type: 'website',
   },
 };

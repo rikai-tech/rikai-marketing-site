@@ -16,10 +16,10 @@ import CTASection from '@/components/CTASection';
 import FooterSection from '@/components/FooterSection';
 import BookDemoModal from '@/components/BookDemoModal';
 
-// Market Research product page — content retained as-is from the original
-// single-product homepage (see the redesign proposal, §5: "Retained as-is").
-// Only the nav/footer around it changed to reflect the new two-product IA.
-export default function MarketResearchPage() {
+// Voice product page (formerly "Market Research") — content retained as-is
+// from the original single-product homepage (see the redesign proposal, §5:
+// "Retained as-is"). Only the nav/footer/branding around it changed.
+export default function VoicePage() {
   const [showBookDemo, setShowBookDemo] = useState(false);
   const [demoEmail, setDemoEmail] = useState('');
 
@@ -42,7 +42,7 @@ export default function MarketResearchPage() {
 
   return (
     <>
-      <NavBar onBookDemo={openBookDemo} activeProduct="market-research" />
+      <NavBar onBookDemo={openBookDemo} activeProduct="voice" />
       <main>
         <HeroSection onBookDemo={openBookDemo} />
         <ProblemSection />
@@ -61,7 +61,7 @@ export default function MarketResearchPage() {
       {showBookDemo && (
         <BookDemoModal
           initialEmail={demoEmail}
-          product="Market Research"
+          product="Voice"
           onClose={() => setShowBookDemo(false)}
         />
       )}

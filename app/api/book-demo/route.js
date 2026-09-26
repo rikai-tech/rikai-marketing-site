@@ -52,7 +52,7 @@ function teamEmailHTML({ name, company, email, phone, slots, guests, notes, prod
 
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#7c3aed,#4f6ef7);border-radius:12px 12px 0 0;padding:24px 32px">
-      <p style="margin:0 0 4px;color:rgba(255,255,255,0.65);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">⚡ New ${product || 'Market Research'} Demo Request</p>
+      <p style="margin:0 0 4px;color:rgba(255,255,255,0.65);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">⚡ New ${product || 'Voice'} Demo Request</p>
       <h1 style="margin:0;color:#fff;font-size:24px;font-weight:800;letter-spacing:-.5px">${name}</h1>
       <p style="margin:4px 0 0;color:rgba(255,255,255,0.8);font-size:15px">${company}</p>
     </div>
@@ -230,7 +230,7 @@ async function upsertHubSpotContact({ name, company, email, phone, consent }) {
 
 async function createHubSpotDeal({ name, company, slots, notes, guests, contactId, product }) {
   const slotsSummary = slots.map((s, i) => `#${i + 1}: ${formatSlotShort(s)}`).join(' | ');
-  const parts = [`Product: ${product || 'Market Research'}`, `Preferred slots: ${slotsSummary}`];
+  const parts = [`Product: ${product || 'Voice'}`, `Preferred slots: ${slotsSummary}`];
   if (guests?.length) parts.push(`Guests: ${guests.join(', ')}`);
   if (notes) parts.push(`Notes: ${notes}`);
 
@@ -240,7 +240,7 @@ async function createHubSpotDeal({ name, company, slots, notes, guests, contactI
 
   const deal = await hubspotRequest('/crm/v3/objects/deals', 'POST', {
     properties: {
-      dealname: `${product || 'Market Research'} Demo Request — ${name} (${company})`,
+      dealname: `${product || 'Voice'} Demo Request — ${name} (${company})`,
       dealstage: 'appointmentscheduled',
       pipeline: 'default',
       description: parts.join('\n\n'),
@@ -290,7 +290,7 @@ export async function POST(request) {
       resend.emails.send({
         from: fromAddress,
         to: [toAddress],
-        subject: `New ${product || 'Market Research'} Demo Request — ${name} (${company})`,
+        subject: `New ${product || 'Voice'} Demo Request — ${name} (${company})`,
         html: teamEmailHTML({ name, company, email, phone, slots, guests: guests || [], notes, product }),
       }),
 

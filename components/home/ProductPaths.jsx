@@ -31,18 +31,18 @@ export default function ProductPaths() {
       <div className="container">
         <div className="product-paths-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
 
-          {/* Understand — Market Research */}
+          {/* Understand — Voice */}
           <div className="fu" style={{
             padding: '44px 40px', borderRadius: 24, border: '1px solid var(--border)',
             background: 'linear-gradient(160deg, rgba(124,58,237,0.06), rgba(124,58,237,0.01))',
             display: 'flex', flexDirection: 'column',
           }}>
             <span style={{ fontSize: 12, fontWeight: 700, color: '#c4b5fd', fontFamily: 'var(--fh)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>Understand</span>
-            <h3 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 30, letterSpacing: '-0.5px', marginBottom: 16, color: 'var(--text-1)' }}>Market Research</h3>
+            <h3 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 30, letterSpacing: '-0.5px', marginBottom: 16, color: 'var(--text-1)' }}>Voice</h3>
             <p style={{ fontSize: 15.5, color: 'var(--text-2)', lineHeight: 1.75, marginBottom: 28, flex: 1 }}>
               Turn customer conversations, feedback, and research into clear, confident decisions — across every format, language, and channel.
             </p>
-            <a href="/products/market-research" style={{
+            <a href="/products/voice" style={{
               alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '13px 26px', borderRadius: 12, background: 'var(--grad)', color: '#fff',
               fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 14.5, boxShadow: '0 0 32px rgba(124,58,237,0.4)',
@@ -50,7 +50,7 @@ export default function ProductPaths() {
             }}
               onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
               onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-            >Explore Market Research →</a>
+            >Explore Voice →</a>
           </div>
 
           {/* Act — LiveAgent */}

@@ -34,7 +34,7 @@ function slotKey(date, time) {
   return `${date.year}-${date.month}-${date.day}-${time}`;
 }
 
-export default function BookDemoModal({ onClose, initialEmail = '', product = 'Market Research' }) {
+export default function BookDemoModal({ onClose, initialEmail = '', product = 'Voice' }) {
   const [step, setStep] = useState(1);
 
   const now = new Date();
