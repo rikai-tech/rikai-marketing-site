@@ -1,3 +1,5 @@
+'use client';
+import { useState } from 'react';
 import SLabel from '@/components/SLabel';
 
 const HIGHLIGHTS = [
@@ -7,12 +9,31 @@ const HIGHLIGHTS = [
   { label: 'Escalation', body: "When it isn't sure, it raises a ticket instead of guessing." },
 ];
 
-// Real widget UI, scripted for demonstration. The chat panel markup and CSS
-// are copied verbatim from live-agent-app's apps/support-widget (chat-view.ts
-// / styles.ts) and driven through a fixed, written conversation — not a live
-// model call. See /public/videos/liveagent-demo.mp4. Replace with real
-// captured footage once a live sandbox with provider credentials exists.
+const TABS = [
+  {
+    key: 'chat',
+    label: 'Chat',
+    badge: 'LIVEAGENT · CHAT WIDGET',
+    poster: '/videos/liveagent-demo-poster.jpg',
+    mp4: '/videos/liveagent-demo.mp4',
+    webm: '/videos/liveagent-demo.webm',
+    background: '#eef0f3',
+  },
+  {
+    key: 'avatar',
+    label: 'Avatar + Voice',
+    badge: 'LIVEAGENT · AVATAR + VOICE',
+    poster: '/videos/liveagent-avatar-demo-poster.jpg',
+    mp4: '/videos/liveagent-avatar-demo.mp4',
+    webm: '/videos/liveagent-avatar-demo.webm',
+    background: '#0b1120',
+  },
+];
+
 export default function LAExperience() {
+  const [active, setActive] = useState('chat');
+  const tab = TABS.find(t => t.key === active);
+
   return (
     <section id="experience" className="section-pad">
       <div className="container not-avatar-grid" style={{ display: 'grid', gridTemplateColumns: '0.85fr 1.15fr', gap: 64, alignItems: 'center' }}>
@@ -31,31 +52,44 @@ export default function LAExperience() {
           </div>
         </div>
 
-        <div className="fu d1" style={{
-          borderRadius: 20, border: '1px solid rgba(79,110,247,0.3)',
-          background: '#0d0d20', overflow: 'hidden', boxShadow: '0 32px 80px rgba(0,0,0,0.55)',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '14px 20px', borderBottom: '1px solid var(--border)' }}>
-            <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#22c55e' }} />
-            <span style={{ fontSize: 12, color: 'var(--text-3)', fontFamily: 'var(--fh)', fontWeight: 600, letterSpacing: '0.05em' }}>LIVEAGENT · CHAT WIDGET</span>
+        <div className="fu d1">
+          <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+            {TABS.map(t => (
+              <button
+                key={t.key}
+                onClick={() => setActive(t.key)}
+                style={{
+                  padding: '9px 20px', borderRadius: 100, fontSize: 13.5, fontFamily: 'var(--fh)', fontWeight: 600,
+                  border: `1px solid ${active === t.key ? 'rgba(79,110,247,0.5)' : 'var(--border-md)'}`,
+                  background: active === t.key ? 'rgba(79,110,247,0.16)' : 'rgba(255,255,255,0.03)',
+                  color: active === t.key ? '#fff' : 'var(--text-2)',
+                  cursor: 'pointer', transition: 'all 0.2s',
+                }}
+              >{t.label}</button>
+            ))}
           </div>
-          <video
-            poster="/videos/liveagent-demo-poster.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            style={{ display: 'block', width: '100%', height: 'auto', background: '#eef0f3' }}
-          >
-            <source src="/videos/liveagent-demo.mp4" type="video/mp4" />
-            <source src="/videos/liveagent-demo.webm" type="video/webm" />
-            Your browser doesn&apos;t support embedded video.
-          </video>
-          <div style={{ padding: '10px 22px 18px' }}>
-            <p style={{ fontSize: 12, color: 'var(--text-3)' }}>
-              LiveAgent&apos;s real chat interface, scripted for demonstration. <a href="/contact" style={{ color: '#a78bfa' }}>See it live →</a>
-            </p>
+
+          <div style={{
+            borderRadius: 20, border: '1px solid rgba(79,110,247,0.3)',
+            background: '#0d0d20', overflow: 'hidden', boxShadow: '0 32px 80px rgba(0,0,0,0.55)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '14px 20px', borderBottom: '1px solid var(--border)' }}>
+              <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#22c55e' }} />
+              <span style={{ fontSize: 12, color: 'var(--text-3)', fontFamily: 'var(--fh)', fontWeight: 600, letterSpacing: '0.05em' }}>{tab.badge}</span>
+            </div>
+            <video
+              key={tab.key}
+              poster={tab.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              disablePictureInPicture
+              style={{ display: 'block', width: '100%', height: 'auto', background: tab.background }}
+            >
+              <source src={tab.mp4} type="video/mp4" />
+              <source src={tab.webm} type="video/webm" />
+            </video>
           </div>
         </div>
       </div>
