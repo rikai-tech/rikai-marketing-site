@@ -11,6 +11,15 @@ const HIGHLIGHTS = [
 
 const TABS = [
   {
+    key: 'avatar',
+    label: 'Avatar',
+    badge: 'LIVEAGENT · AVATAR + VOICE',
+    poster: '/videos/liveagent-avatar-demo-poster.jpg',
+    mp4: '/videos/liveagent-avatar-demo.mp4',
+    webm: '/videos/liveagent-avatar-demo.webm',
+    background: '#0b1120',
+  },
+  {
     key: 'chat',
     label: 'Chat',
     badge: 'LIVEAGENT · CHAT WIDGET',
@@ -19,19 +28,10 @@ const TABS = [
     webm: '/videos/liveagent-demo.webm',
     background: '#eef0f3',
   },
-  {
-    key: 'avatar',
-    label: 'Avatar + Voice',
-    badge: 'LIVEAGENT · AVATAR + VOICE',
-    poster: '/videos/liveagent-avatar-demo-poster.jpg',
-    mp4: '/videos/liveagent-avatar-demo.mp4',
-    webm: '/videos/liveagent-avatar-demo.webm',
-    background: '#0b1120',
-  },
 ];
 
 export default function LAExperience() {
-  const [active, setActive] = useState('chat');
+  const [active, setActive] = useState('avatar');
   const tab = TABS.find(t => t.key === active);
 
   return (
