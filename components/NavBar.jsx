@@ -35,6 +35,7 @@ const PORTALS = [
 const NAV_LINKS = [
   { key: 'voice', label: 'Voice', href: '/products/voice' },
   { key: 'liveagent', label: 'LiveAgent', href: '/products/liveagent' },
+  { key: 'pricing', label: 'Pricing', href: '/pricing' },
   { key: 'about', label: 'About', href: '/about' },
   { key: 'contact', label: 'Contact', href: '/contact' },
 ];

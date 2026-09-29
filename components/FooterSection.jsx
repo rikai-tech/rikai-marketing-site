@@ -5,6 +5,7 @@ const cols = [
       { label: 'Voice', href: '/products/voice' },
       { label: 'LiveAgent', href: '/products/liveagent' },
       { label: 'Compare Products', href: '/products' },
+      { label: 'Pricing', href: '/pricing' },
     ],
   },
   {
