@@ -11,14 +11,14 @@ function Check({ color }) {
 }
 
 export default function LiveAgentPricing() {
-  const [annual, setAnnual] = useState(false);
+  const [annual, setAnnual] = useState(true);
 
   return (
     <div>
       {/* Billing interval toggle */}
       <div className="fu" style={{ display: 'flex', justifyContent: 'center', marginBottom: 48 }}>
         <div style={{ display: 'inline-flex', gap: 4, padding: 4, borderRadius: 100, background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-md)' }}>
-          {[{ k: false, label: 'Monthly' }, { k: true, label: 'Annual' }].map(opt => (
+          {[{ k: true, label: 'Annual' }, { k: false, label: 'Monthly' }].map(opt => (
             <button
               key={String(opt.k)}
               onClick={() => setAnnual(opt.k)}
