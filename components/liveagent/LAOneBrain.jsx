@@ -20,7 +20,7 @@ export default function LAOneBrain() {
             One agent. Every channel.<br /><span className="gt">One brain.</span>
           </h2>
           <p style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.8, marginBottom: 16 }}>
-            Your customers can reach LiveAgent through web chat, an avatar with voice, or voice alone. These aren&apos;t three separate bots wearing different interfaces — they&apos;re different entry points into the same agent brain, all calling the same shared reasoning core.
+            The avatar and chat views you just tried above are two entry points into LiveAgent — add a phone line and that&apos;s three. They aren&apos;t separate bots wearing different interfaces — they&apos;re different channels into the same agent brain, all calling the same shared reasoning core.
           </p>
           <p style={{ fontSize: 15, color: 'var(--text-3)', lineHeight: 1.7, fontStyle: 'italic' }}>
             The channel is just the interface. The intelligence underneath is shared.

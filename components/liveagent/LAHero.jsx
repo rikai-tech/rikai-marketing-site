@@ -1,34 +1,57 @@
 'use client';
+import LADemoCard from './LADemoCard';
+
+const HIGHLIGHTS = [
+  { label: 'Natural', body: 'A real conversation, not a decision tree.' },
+  { label: 'Grounded', body: 'Answers pulled from your approved knowledge, cited inline.' },
+  { label: 'Governed', body: 'Order actions confirmed before anything happens.' },
+  { label: 'Escalation', body: "When it isn't sure, it raises a ticket instead of guessing." },
+];
 
 // Note: no launch-stage badge here on purpose — the redesign proposal (§12
 // "still open") flags that the real launch stage (early access vs. live)
 // needs confirmation before any badge copy ships. Add one once that's decided.
 export default function LAHero({ onBookDemo }) {
   return (
-    <section id="la-hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: 68 }}>
+    <section id="la-hero" style={{ position: 'relative', overflow: 'hidden', paddingTop: 140, paddingBottom: 96 }}>
       <div className="orb" style={{ width: 680, height: 680, background: 'radial-gradient(circle, rgba(79,110,247,0.2) 0%, transparent 70%)', top: -140, right: -120, animation: 'float 10s ease-in-out infinite' }} />
       <div className="orb" style={{ width: 420, height: 420, background: 'radial-gradient(circle, rgba(124,58,237,0.16) 0%, transparent 70%)', bottom: -60, left: '18%', animation: 'floatB 8s ease-in-out infinite' }} />
 
-      <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: 820, padding: '80px 48px' }}>
-        <p className="fu" style={{ fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700, color: '#818cf8', fontFamily: 'var(--fh)', marginBottom: 20 }}>
-          AI Support Agent
-        </p>
+      <div className="container not-avatar-grid" style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 64, alignItems: 'center' }}>
+        <div className="fu">
+          <p style={{ fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700, color: '#818cf8', fontFamily: 'var(--fh)', marginBottom: 20 }}>
+            AI Support Agent
+          </p>
 
-        <h1 className="hero-h1 fu d1" style={{ fontFamily: 'var(--fh)', fontWeight: 700, lineHeight: 1.1, marginBottom: 24, color: 'var(--text-1)' }}>
-          Give your customers an answer.<br /><span className="gt">Not a queue.</span>
-        </h1>
+          <h1 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 44, letterSpacing: '-1.5px', lineHeight: 1.1, marginBottom: 22, color: 'var(--text-1)' }}>
+            Give your customers an answer.<br /><span className="gt">Not a queue.</span>
+          </h1>
 
-        <p className="fu d2" style={{ fontSize: 17.5, color: 'var(--text-2)', lineHeight: 1.75, marginBottom: 40, maxWidth: 660, marginLeft: 'auto', marginRight: 'auto' }}>
-          LiveAgent brings a knowledgeable AI agent to your website — one that understands your approved knowledge, operates within your rules, can take governed actions when configured to do so, and gives your team visibility into what happened.
-        </p>
+          <p style={{ fontSize: 16.5, color: 'var(--text-2)', lineHeight: 1.75, marginBottom: 32, maxWidth: 480 }}>
+            LiveAgent brings a knowledgeable AI agent to your website — grounded in your approved knowledge, operating within your rules, visible to your team. Try the live demo.
+          </p>
 
-        <div className="hero-ctas" style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="#experience" style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 15, padding: '14px 30px', borderRadius: 12, boxShadow: '0 0 40px rgba(79,110,247,0.45)', display: 'inline-block' }}>
-            See LiveAgent in Action →
-          </a>
-          <button onClick={() => onBookDemo()} style={{ color: 'var(--text-1)', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 15, padding: '14px 26px', borderRadius: 12, border: '1px solid var(--border-md)', background: 'rgba(255,255,255,0.04)', cursor: 'pointer' }}>
-            Book a Demo
-          </button>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
+            {HIGHLIGHTS.map(h => (
+              <div key={h.label} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                <span style={{ padding: '4px 12px', borderRadius: 100, fontSize: 11, fontWeight: 700, color: '#818cf8', background: 'rgba(79,110,247,0.12)', border: '1px solid rgba(79,110,247,0.25)', fontFamily: 'var(--fh)', flexShrink: 0, marginTop: 2, whiteSpace: 'nowrap' }}>{h.label}</span>
+                <span style={{ fontSize: 14.5, color: 'var(--text-2)', lineHeight: 1.6 }}>{h.body}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="hero-ctas" style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
+            <button onClick={() => onBookDemo()} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 15, padding: '14px 30px', borderRadius: 12, boxShadow: '0 0 40px rgba(79,110,247,0.45)', border: 'none', cursor: 'pointer' }}>
+              Book a Demo
+            </button>
+            <a href="#problem" style={{ fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 14.5, color: 'var(--text-2)' }}>
+              See how it works ↓
+            </a>
+          </div>
+        </div>
+
+        <div className="fu d1" id="experience">
+          <LADemoCard />
         </div>
       </div>
     </section>

@@ -8,7 +8,6 @@ import BookDemoModal from '@/components/BookDemoModal';
 import LAHero from '@/components/liveagent/LAHero';
 import LAProblem from '@/components/liveagent/LAProblem';
 import LAOneBrain from '@/components/liveagent/LAOneBrain';
-import LAExperience from '@/components/liveagent/LAExperience';
 import LANotAvatar from '@/components/liveagent/LANotAvatar';
 import LAPillars from '@/components/liveagent/LAPillars';
 import LAAction from '@/components/liveagent/LAAction';
@@ -17,10 +16,11 @@ import LAKnowledge from '@/components/liveagent/LAKnowledge';
 import LAWhoFor from '@/components/liveagent/LAWhoFor';
 import LACTA from '@/components/liveagent/LACTA';
 
-// LiveAgent product page — locked storyline v4 (redesign proposal §13).
-// Flow: Problem -> One Agent/Multi-Channel/One Brain -> Experience ->
-// Not an Avatar -> Grounded -> Governed -> Traceable -> Action (Order
-// Capture) -> Escalation -> Knowledge -> Who It's For -> CTA.
+// LiveAgent product page — storyline v5: the live demo now sits in the
+// hero (no scrolling to reach it) with Problem -> One Agent/Multi-Channel/
+// One Brain -> Not an Avatar -> Grounded -> Governed -> Traceable ->
+// Action (Order Capture) -> Escalation -> Knowledge -> Who It's For -> CTA
+// explaining what visitors just saw.
 export default function LiveAgentPage() {
   const [showBookDemo, setShowBookDemo] = useState(false);
 
@@ -45,7 +45,6 @@ export default function LiveAgentPage() {
         <LAHero onBookDemo={openBookDemo} />
         <LAProblem />
         <LAOneBrain />
-        <LAExperience />
         <LANotAvatar />
         <LAPillars />
         <LAAction />
