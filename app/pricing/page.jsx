@@ -63,7 +63,7 @@ export default function PricingPage() {
               Usage-based for LiveAgent.<br /><span className="gt">Scoped for Voice.</span>
             </h1>
             <p style={{ fontSize: 16, color: 'var(--text-2)', lineHeight: 1.8 }}>
-              Two products, two ways of pricing. Pick a product below to see how it works.
+              Different business challenges. Different ways to get started.
             </p>
           </div>
         </section>
