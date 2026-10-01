@@ -34,7 +34,7 @@ function slotKey(date, time) {
   return `${date.year}-${date.month}-${date.day}-${time}`;
 }
 
-export default function BookDemoModal({ onClose, initialEmail = '' }) {
+export default function BookDemoModal({ onClose, initialEmail = '', product = 'Voice' }) {
   const [step, setStep] = useState(1);
 
   const now = new Date();
@@ -144,7 +144,7 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
       const res = await fetch('/api/book-demo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, slots, guests, consent }),
+        body: JSON.stringify({ ...form, slots, guests, consent, product }),
       });
       if (!res.ok) throw new Error('server');
       setSubmitted(true);

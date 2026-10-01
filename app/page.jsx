@@ -2,20 +2,15 @@
 import { useState, useEffect } from 'react';
 
 import NavBar from '@/components/NavBar';
-import HeroSection from '@/components/HeroSection';
-import ProblemSection from '@/components/ProblemSection';
-import ShiftSection from '@/components/ShiftSection';
-import CapabilitiesSection from '@/components/CapabilitiesSection';
-import AskRishiSection from '@/components/AskRishiSection';
-import UnderstandingSection from '@/components/UnderstandingSection';
-import PersonasSection from '@/components/PersonasSection';
-import ProductPreviewSection from '@/components/ProductPreviewSection';
-import TrustSection from '@/components/TrustSection';
-import UseCasesSection from '@/components/UseCasesSection';
-import CTASection from '@/components/CTASection';
+import PortfolioHero, { PhilosophyBand } from '@/components/home/PortfolioHero';
+import ProductPaths from '@/components/home/ProductPaths';
+import HomeClosingCTA from '@/components/home/HomeClosingCTA';
 import FooterSection from '@/components/FooterSection';
 import BookDemoModal from '@/components/BookDemoModal';
 
+// Portfolio homepage — rik.ai now has two product lines (Voice and
+// LiveAgent). This page establishes the company story first, then routes to
+// each product. See the redesign proposal §12 ("Home page v3").
 export default function HomePage() {
   const [showBookDemo, setShowBookDemo] = useState(false);
   const [demoEmail, setDemoEmail] = useState('');
@@ -41,17 +36,10 @@ export default function HomePage() {
     <>
       <NavBar onBookDemo={openBookDemo} />
       <main>
-        <HeroSection onBookDemo={openBookDemo} />
-        <ProblemSection />
-        <ShiftSection />
-        <CapabilitiesSection />
-        <AskRishiSection />
-        <UnderstandingSection />
-        <PersonasSection />
-        <ProductPreviewSection />
-        <TrustSection />
-        <UseCasesSection />
-        <CTASection onBookDemo={openBookDemo} />
+        <PortfolioHero />
+        <PhilosophyBand />
+        <ProductPaths />
+        <HomeClosingCTA />
       </main>
       <FooterSection />
 

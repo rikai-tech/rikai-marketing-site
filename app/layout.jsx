@@ -16,11 +16,11 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: 'Rik AI — Feedback Intelligence Platform',
-  description: 'Turn customer feedback, research, and behaviour into real-time insights and actions. The new verse of market intelligence.',
+  title: 'rik.ai — Understand your customers. Take care of them, too.',
+  description: 'rik.ai builds AI products that help businesses understand what customers need and act on it when it matters — Voice for customer intelligence, LiveAgent for grounded, governed AI support.',
   openGraph: {
-    title: 'Rik AI — Feedback Intelligence Platform',
-    description: 'Turn customer signals into decisions. Instantly.',
+    title: 'rik.ai — Understand your customers. Take care of them, too.',
+    description: 'Two AI product lines, one conviction: Voice to understand your customers, LiveAgent to take care of them.',
     type: 'website',
   },
 };

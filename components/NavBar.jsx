@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from 'react';
 const PORTALS = [
   {
     key: 'voice',
-    label: 'Voice Portal',
-    sub: 'For Survey Respondents',
-    desc: 'Join a research study, complete a survey, or share your feedback.',
-    href: 'https://survey.rikai.tech',
+    label: 'Voice',
+    sub: 'Sign in to Voice',
+    desc: 'Run studies, manage projects, and view your customer intelligence workspace.',
+    href: 'https://voice.rikai.tech',
     grad: 'linear-gradient(135deg,rgba(124,58,237,0.3),rgba(79,110,247,0.2))',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -17,11 +17,11 @@ const PORTALS = [
     ),
   },
   {
-    key: 'customer',
-    label: 'Customer Portal',
-    sub: 'For Teams & Organisations',
-    desc: 'Access your Rik AI workspace, manage projects, and view insights.',
-    href: 'https://customer.rikai.tech',
+    key: 'liveagent',
+    label: 'LiveAgent',
+    sub: 'Sign in to LiveAgent',
+    desc: 'Configure and manage your LiveAgent support agents.',
+    href: 'https://liveagent.rikai.tech',
     grad: 'linear-gradient(135deg,rgba(79,110,247,0.3),rgba(124,58,237,0.15))',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -32,11 +32,21 @@ const PORTALS = [
   },
 ];
 
-export default function NavBar({ onBookDemo }) {
+const NAV_LINKS = [
+  { key: 'voice', label: 'Voice', href: '/products/voice' },
+  { key: 'liveagent', label: 'LiveAgent', href: '/products/liveagent' },
+  { key: 'pricing', label: 'Pricing', href: '/pricing' },
+  { key: 'about', label: 'About', href: '/about' },
+  { key: 'contact', label: 'Contact', href: '/contact' },
+];
+
+const GLOBAL_CTA = { voice: 'Book a Voice Demo', liveagent: 'Book a LiveAgent Demo' };
+
+export default function NavBar({ onBookDemo, activeProduct, ctaLabel }) {
   const [scrolled, setScrolled] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const signInRef = useRef(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -44,23 +54,15 @@ export default function NavBar({ onBookDemo }) {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const fn = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setSignInOpen(false);
-      }
+      if (signInRef.current && !signInRef.current.contains(e.target)) setSignInOpen(false);
     };
     document.addEventListener('mousedown', fn);
     return () => document.removeEventListener('mousedown', fn);
   }, []);
 
-  const links = [
-    { label: 'Platform', href: '#features' },
-    { label: 'Ask Rishi', href: '#rishi' },
-    { label: 'Solutions', href: '#personas' },
-    { label: 'Product', href: '#product' },
-  ];
+  const resolvedCta = ctaLabel || GLOBAL_CTA[activeProduct] || 'Book a Demo';
 
   const navStyle = {
     position: 'fixed', top: 0, left: 0, right: 0, zIndex: 200,
@@ -73,15 +75,15 @@ export default function NavBar({ onBookDemo }) {
     transition: 'all 0.35s ease',
   };
 
-  const linkStyle = {
-    color: 'rgba(240,240,255,0.68)', fontSize: '15px',
-    fontFamily: 'var(--fb)', fontWeight: 450,
-    transition: 'color 0.2s', cursor: 'pointer',
-  };
+  const linkStyle = (isActive) => ({
+    color: isActive ? '#f0f0ff' : 'rgba(240,240,255,0.68)', fontSize: '15px',
+    fontFamily: 'var(--fb)', fontWeight: isActive ? 600 : 450,
+    transition: 'color 0.2s', cursor: 'pointer', textDecoration: 'none',
+  });
 
   return (
     <nav style={navStyle}>
-      <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <img src="/uploads/logo_upload-1776774656314.png" alt="Rik AI" style={{ height: '38px', width: 'auto' }} />
         <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: '21px', color: 'var(--text-1)', letterSpacing: '-0.5px' }}>
           Rik<span className="gt">.ai</span>
@@ -89,10 +91,10 @@ export default function NavBar({ onBookDemo }) {
       </a>
 
       <div className="nav-links" style={{ display: 'flex', gap: '36px', alignItems: 'center' }}>
-        {links.map(l => (
-          <a key={l.label} href={l.href} style={linkStyle}
-            onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+        {NAV_LINKS.map(l => (
+          <a key={l.key} href={l.href} style={linkStyle(activeProduct === l.key)}
+            onMouseEnter={e => { if (activeProduct !== l.key) e.currentTarget.style.color = '#f0f0ff'; }}
+            onMouseLeave={e => { if (activeProduct !== l.key) e.currentTarget.style.color = 'rgba(240,240,255,0.68)'; }}
           >{l.label}</a>
         ))}
       </div>
@@ -100,11 +102,11 @@ export default function NavBar({ onBookDemo }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
 
         {/* Sign in with dropdown — hidden on mobile */}
-        <div ref={dropdownRef} className="nav-desktop-only" style={{ position: 'relative' }}>
+        <div ref={signInRef} className="nav-desktop-only" style={{ position: 'relative' }}>
           <button
             onClick={() => setSignInOpen(o => !o)}
             style={{
-              ...linkStyle,
+              ...linkStyle(false),
               padding: '8px 14px',
               background: 'none', border: 'none', cursor: 'pointer',
               display: 'flex', alignItems: 'center', gap: 6,
@@ -125,7 +127,7 @@ export default function NavBar({ onBookDemo }) {
           {signInOpen && (
             <div style={{
               position: 'absolute', top: 'calc(100% + 12px)', right: 0,
-              width: 310,
+              width: 300,
               background: '#0d0d20',
               border: '1px solid rgba(124,58,237,0.2)',
               borderRadius: 18,
@@ -195,7 +197,7 @@ export default function NavBar({ onBookDemo }) {
               <div style={{ padding: '8px 16px 12px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                 <p style={{ margin: 0, fontSize: 11, color: 'var(--text-3)', fontFamily: 'var(--fb)' }}>
                   Not sure?{' '}
-                  <a href="mailto:sales@rikai.tech" style={{ color: '#a78bfa', textDecoration: 'none', fontWeight: 600 }}>Contact us</a>
+                  <a href="/contact" style={{ color: '#a78bfa', textDecoration: 'none', fontWeight: 600 }}>Contact us</a>
                 </p>
               </div>
             </div>
@@ -210,10 +212,11 @@ export default function NavBar({ onBookDemo }) {
           boxShadow: '0 0 28px rgba(124,58,237,0.45)',
           transition: 'transform 0.2s, box-shadow 0.2s',
           border: 'none', cursor: 'pointer',
+          whiteSpace: 'nowrap',
         }}
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 32px rgba(124,58,237,0.6)'; }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 28px rgba(124,58,237,0.45)'; }}
-        >Book a Demo</button>
+        >{resolvedCta}</button>
 
         {/* Hamburger — visible on mobile only */}
         <button
@@ -231,18 +234,19 @@ export default function NavBar({ onBookDemo }) {
       {/* Mobile drawer */}
       {mobileOpen && (
         <div className="mobile-drawer" style={{
-          position: 'fixed', top: 68, left: 0, right: 0,
+          position: 'fixed', top: 68, left: 0, right: 0, bottom: 0,
           background: 'rgba(8,8,26,0.97)',
           backdropFilter: 'blur(24px)',
           borderBottom: '1px solid rgba(255,255,255,0.07)',
           padding: '24px 24px 32px',
+          overflowY: 'auto',
           zIndex: 199,
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 24 }}>
-            {links.map(l => (
-              <a key={l.label} href={l.href} onClick={() => setMobileOpen(false)} style={{ padding: '13px 12px', borderRadius: 10, fontSize: 17, fontFamily: 'var(--fh)', fontWeight: 600, color: 'var(--text-2)', display: 'block', transition: 'background 0.15s, color 0.15s' }}
+            {NAV_LINKS.map(l => (
+              <a key={l.key} href={l.href} onClick={() => setMobileOpen(false)} style={{ padding: '13px 12px', borderRadius: 10, fontSize: 17, fontFamily: 'var(--fh)', fontWeight: 600, color: activeProduct === l.key ? 'var(--text-1)' : 'var(--text-2)', display: 'block', transition: 'background 0.15s, color 0.15s' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'var(--text-1)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-2)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = activeProduct === l.key ? 'var(--text-1)' : 'var(--text-2)'; }}
               >{l.label}</a>
             ))}
           </div>
@@ -257,7 +261,7 @@ export default function NavBar({ onBookDemo }) {
               </a>
             ))}
             <button onClick={() => { onBookDemo(); setMobileOpen(false); }} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15, padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer', marginTop: 4, boxShadow: '0 0 28px rgba(124,58,237,0.4)' }}>
-              Book a Demo
+              {resolvedCta}
             </button>
           </div>
         </div>
