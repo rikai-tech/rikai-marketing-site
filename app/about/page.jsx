@@ -6,17 +6,6 @@ import FooterSection from '@/components/FooterSection';
 import BookDemoModal from '@/components/BookDemoModal';
 import SLabel from '@/components/SLabel';
 
-const BELIEFS = [
-  { title: 'Speed of the question', body: 'Insights and answers should arrive at the speed of the question, not weeks later.', color: '#c4b5fd' },
-  { title: 'A better hand-off', body: 'Automation should never mean losing the human thread — the goal is a better hand-off, not no hand-off.', color: '#818cf8' },
-  { title: 'Your data is yours', body: 'Your research, your knowledge, your transcripts — always yours.', color: '#34d399' },
-];
-
-const PRODUCTS = [
-  { name: 'Voice', tagline: 'Understand your customers, deeply and continuously.', href: '/products/voice', color: '#c4b5fd' },
-  { name: 'LiveAgent', tagline: 'Be there for your customers, live, the moment they ask.', href: '/products/liveagent', color: '#818cf8' },
-];
-
 export default function AboutPage() {
   const [showBookDemo, setShowBookDemo] = useState(false);
 
@@ -75,49 +64,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* What we believe — grid */}
-        <section className="section-pad" style={{ borderTop: '1px solid var(--border)', background: 'rgba(255,255,255,0.012)' }}>
+        {/* Closing */}
+        <section style={{ padding: '0 0 120px' }}>
           <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <SLabel>What We Believe</SLabel>
-              <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px' }}>The principles behind both products</h2>
-            </div>
-            <div className="problem-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
-              {BELIEFS.map((b, i) => (
-                <div key={b.title} className={`fu d${i + 1}`} style={{ padding: '28px 24px', background: 'var(--card)', borderRadius: 'var(--r)', border: '1px solid var(--border)' }}>
-                  <h3 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 16, marginBottom: 10, color: b.color }}>{b.title}</h3>
-                  <p style={{ fontSize: 13.5, color: 'var(--text-2)', lineHeight: 1.75 }}>{b.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Our products */}
-        <section className="section-pad">
-          <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <SLabel>Our Products</SLabel>
-              <h2 className="fu section-h2" style={{ fontFamily: 'var(--fh)', fontWeight: 700, letterSpacing: '-1px' }}>Two products, one conviction</h2>
-            </div>
-            <div className="product-paths-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 56 }}>
-              {PRODUCTS.map((p, i) => (
-                <a key={p.name} href={p.href} className={`fu d${i + 1}`} style={{
-                  display: 'block', padding: '32px 30px', borderRadius: 20, border: '1px solid var(--border)',
-                  background: 'linear-gradient(160deg, rgba(255,255,255,0.03), rgba(255,255,255,0.005))',
-                  textDecoration: 'none', transition: 'transform 0.2s, border-color 0.2s',
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = p.color + '50'; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border)'; }}
-                >
-                  <h3 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 20, marginBottom: 10, color: p.color }}>{p.name}</h3>
-                  <p style={{ fontSize: 14.5, color: 'var(--text-2)', lineHeight: 1.7, marginBottom: 16 }}>{p.tagline}</p>
-                  <span style={{ fontSize: 13.5, fontFamily: 'var(--fh)', fontWeight: 600, color: 'var(--text-1)' }}>Learn more →</span>
-                </a>
-              ))}
-            </div>
-
-            <div className="fu" style={{ textAlign: 'center' }}>
+            <div className="fu" style={{ textAlign: 'center', paddingTop: 48, borderTop: '1px solid var(--border)' }}>
               <p style={{ fontSize: 14, color: 'rgba(167,139,250,0.6)', marginBottom: 28 }}>Inspired by knowledge. Built for clarity.</p>
               <a href="/products" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', borderRadius: 12, background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 14.5 }}>See our products →</a>
             </div>
