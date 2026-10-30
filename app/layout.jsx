@@ -16,11 +16,11 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: 'rik.ai — Understand your customers. Take care of them, too.',
-  description: 'rik.ai builds AI products that help businesses understand what customers need and act on it when it matters — Voice for customer intelligence, LiveAgent for grounded, governed AI support.',
+  title: 'rik.ai — Better customer experiences begin with better understanding.',
+  description: 'Businesses need to understand what customers think, and be there when customers need them. Voice for AI-powered customer research, LiveAgent for knowledge-powered AI support.',
   openGraph: {
-    title: 'rik.ai — Understand your customers. Take care of them, too.',
-    description: 'Two AI product lines, one conviction: Voice to understand your customers, LiveAgent to take care of them.',
+    title: 'rik.ai — Better customer experiences begin with better understanding.',
+    description: 'Two AI products, one philosophy: Voice to listen deeper, LiveAgent to respond smarter.',
     type: 'website',
   },
 };
