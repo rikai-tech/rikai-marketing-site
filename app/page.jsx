@@ -3,14 +3,13 @@ import { useState, useEffect } from 'react';
 
 import NavBar from '@/components/NavBar';
 import PortfolioHero, { PhilosophyBand } from '@/components/home/PortfolioHero';
-import ProductPaths from '@/components/home/ProductPaths';
 import HomeClosingCTA from '@/components/home/HomeClosingCTA';
 import FooterSection from '@/components/FooterSection';
 import BookDemoModal from '@/components/BookDemoModal';
 
-// Portfolio homepage — rik.ai now has two product lines (Voice and
-// LiveAgent). This page establishes the company story first, then routes to
-// each product. See the redesign proposal §12 ("Home page v3").
+// Portfolio homepage — rik.ai has two separate product lines (Voice and
+// LiveAgent). The hero leads with both product tiles, then the shared
+// philosophy that binds them under the brand.
 export default function HomePage() {
   const [showBookDemo, setShowBookDemo] = useState(false);
   const [demoEmail, setDemoEmail] = useState('');
@@ -38,7 +37,6 @@ export default function HomePage() {
       <main>
         <PortfolioHero />
         <PhilosophyBand />
-        <ProductPaths />
         <HomeClosingCTA />
       </main>
       <FooterSection />

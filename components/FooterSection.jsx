@@ -46,7 +46,7 @@ export default function FooterSection() {
               <img src="/uploads/logo_upload-1776774656314.png" alt="Rik AI" style={{ height: 36 }} />
               <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 20 }}>Rik<span className="gt">.ai</span></span>
             </div>
-            <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.8, maxWidth: 240, marginBottom: 8 }}>Understand your customers. Take care of them, too. Two AI product lines, one conviction.</p>
+            <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.8, maxWidth: 240, marginBottom: 8 }}>Better customer experiences begin with better understanding. Two AI products, one philosophy.</p>
             <p style={{ fontSize: 12, color: 'rgba(167,139,250,0.4)' }}>Inspired by knowledge. Built for clarity.</p>
           </div>
           {cols.map(col => (
