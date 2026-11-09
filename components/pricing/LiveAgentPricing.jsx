@@ -43,7 +43,7 @@ export default function LiveAgentPricing({ onBookDemo }) {
       </div>
 
       {/* Pricing cards */}
-      <div className="pricing-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, alignItems: 'stretch' }}>
+      <div className="pricing-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16, alignItems: 'stretch' }}>
         {LIVEAGENT_TIERS.map((t, i) => {
           const price = annual ? t.annualMonthly : t.monthly;
           const savingsPerMonth = t.monthly - t.annualMonthly;
@@ -51,7 +51,7 @@ export default function LiveAgentPricing({ onBookDemo }) {
           return (
             <div key={t.key} className={`fu d${Math.min(i + 1, 5)}`} style={{
               display: 'flex', flexDirection: 'column',
-              padding: '30px 26px', borderRadius: 20,
+              padding: '28px 22px', borderRadius: 20,
               background: t.popular ? 'linear-gradient(160deg, rgba(124,58,237,0.1), rgba(79,110,247,0.04))' : 'var(--card)',
               border: t.popular ? '1px solid rgba(124,58,237,0.5)' : '1px solid var(--border)',
               boxShadow: t.popular ? '0 24px 64px rgba(124,58,237,0.25)' : 'none',
@@ -99,7 +99,7 @@ export default function LiveAgentPricing({ onBookDemo }) {
 
                 <div style={{ borderRadius: 12, border: `1px dashed ${t.popular ? 'rgba(167,139,250,0.4)' : 'var(--border-md)'}`, background: 'rgba(255,255,255,0.025)', padding: '12px 14px' }}>
                   <p style={{ fontSize: 10.5, fontWeight: 700, fontFamily: 'var(--fh)', letterSpacing: '0.08em', textTransform: 'uppercase', color: accent, marginBottom: 10 }}>
-                    Choose one: voice or avatar
+                    Choose one
                   </p>
                   <ChoiceRow label="Voice channel" text={t.voice} />
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, margin: '8px 0' }}>
@@ -113,35 +113,41 @@ export default function LiveAgentPricing({ onBookDemo }) {
             </div>
           );
         })}
-      </div>
 
-      {/* Enterprise */}
-      <div className="fu enterprise-card" style={{
-        marginTop: 20, padding: '32px 34px', borderRadius: 20, border: '1px solid var(--border-md)',
-        background: 'linear-gradient(135deg, rgba(79,110,247,0.08), rgba(124,58,237,0.05))',
-        display: 'grid', gridTemplateColumns: '1.1fr 1.3fr auto', gap: 36, alignItems: 'center',
-      }}>
-        <div>
-          <h3 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 22, marginBottom: 6, color: 'var(--text-1)' }}>{LIVEAGENT_ENTERPRISE.name}</h3>
-          <p style={{ fontSize: 13.5, color: 'var(--text-2)', lineHeight: 1.65, marginBottom: 12 }}>{LIVEAGENT_ENTERPRISE.tagline}</p>
-          <span style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 26, letterSpacing: '-0.5px', color: 'var(--text-1)' }}>Custom pricing</span>
+        {/* Enterprise — custom-priced, opens the book-a-demo flow */}
+        <div className="fu d5 pricing-enterprise" style={{
+          display: 'flex', flexDirection: 'column', padding: '28px 22px', borderRadius: 20,
+          background: 'var(--card)', border: '1px solid var(--border)',
+        }}>
+          <h3 style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 20, marginBottom: 6, color: 'var(--text-1)' }}>{LIVEAGENT_ENTERPRISE.name}</h3>
+          <p style={{ fontSize: 13, color: 'var(--text-3)', lineHeight: 1.6, marginBottom: 20, minHeight: 40 }}>{LIVEAGENT_ENTERPRISE.tagline}</p>
+
+          <div style={{ marginBottom: 4 }}>
+            <span style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 38, letterSpacing: '-1px', color: 'var(--text-1)' }}>Custom</span>
+          </div>
+          <p style={{ fontSize: 12, color: 'var(--text-3)', marginBottom: 24, minHeight: 18 }}>Pricing tailored to your volume</p>
+
+          <button
+            onClick={() => onBookDemo && onBookDemo()}
+            style={{
+              display: 'block', width: '100%', textAlign: 'center', padding: '12px 20px', borderRadius: 12, marginBottom: 26,
+              fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14.5, cursor: 'pointer', transition: 'transform 0.2s',
+              background: 'rgba(255,255,255,0.06)', color: 'var(--text-1)', border: '1px solid var(--border-md)',
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-1px)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+          >{LIVEAGENT_ENTERPRISE.cta}</button>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, borderTop: '1px solid var(--border)', paddingTop: 20 }}>
+            <p style={{ fontSize: 10.5, fontWeight: 700, fontFamily: 'var(--fh)', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#818cf8' }}>Everything in Business, plus</p>
+            {LIVEAGENT_ENTERPRISE.features.map(f => (
+              <div key={f} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
+                <Check color="#818cf8" />
+                <span style={{ fontSize: 12.5, color: 'var(--text-2)', lineHeight: 1.6 }}>{f}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px 24px' }} className="enterprise-features">
-          {LIVEAGENT_ENTERPRISE.features.map(f => (
-            <div key={f} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-              <Check color="#818cf8" />
-              <span style={{ fontSize: 13, color: 'var(--text-2)', lineHeight: 1.6 }}>{f}</span>
-            </div>
-          ))}
-        </div>
-        <button
-          onClick={() => onBookDemo && onBookDemo()}
-          style={{
-            padding: '13px 28px', borderRadius: 12, border: 'none', cursor: 'pointer', whiteSpace: 'nowrap',
-            background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14.5,
-            boxShadow: '0 0 28px rgba(79,110,247,0.35)',
-          }}
-        >{LIVEAGENT_ENTERPRISE.cta}</button>
       </div>
     </div>
   );

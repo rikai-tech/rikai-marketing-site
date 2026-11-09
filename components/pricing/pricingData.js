@@ -58,7 +58,7 @@ export const LIVEAGENT_TIERS = [
 // book-a-demo flow rather than the self-serve signup.
 export const LIVEAGENT_ENTERPRISE = {
   name: 'Enterprise',
-  tagline: 'For large organisations with custom volume, security or deployment needs.',
+  tagline: 'For custom volume and security needs.',
   cta: 'Talk to Sales',
   features: [
     'Custom chat, voice and avatar volumes',
