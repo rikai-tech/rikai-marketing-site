@@ -1,8 +1,10 @@
 // Real LiveAgent plan tiers, sourced from the billing admin console (Plans
 // screen) on 2026-09-29. Usage allowances are per billing month regardless
 // of billing interval; only the rate changes between monthly and annual.
-// "Voice channel minutes" here is LiveAgent's phone/voice channel — distinct
-// from the separate Voice product, renamed on this page to avoid confusion.
+// "Voice channel" here is LiveAgent's phone/voice channel — distinct from the
+// separate Voice product. Each plan includes chat plus EITHER voice-channel
+// minutes OR avatar minutes (the customer picks one), so they are modelled as
+// separate `voice` / `avatar` strings rather than a flat feature list.
 export const LIVEAGENT_TIERS = [
   {
     key: 'trial',
@@ -12,11 +14,9 @@ export const LIVEAGENT_TIERS = [
     annualMonthly: 0,
     isTrial: true,
     cta: 'Start free trial',
-    features: [
-      '50 chat conversations included — no overage',
-      '10 voice channel minutes included — no overage',
-      '3 avatar minutes included — no overage',
-    ],
+    chat: '50 chat conversations included — no overage',
+    voice: '10 minutes included — no overage',
+    avatar: '3 minutes included — no overage',
   },
   {
     key: 'starter',
@@ -25,11 +25,9 @@ export const LIVEAGENT_TIERS = [
     monthly: 109,
     annualMonthly: 89,
     cta: 'Get started',
-    features: [
-      '500 chat conversations included, then $0.50/conversation',
-      '500 voice channel minutes included, then $0.60/minute',
-      '50 avatar minutes included, then $0.80/minute',
-    ],
+    chat: '500 chat conversations included, then $0.50/conversation',
+    voice: '500 minutes included, then $0.60/minute',
+    avatar: '50 minutes included, then $0.80/minute',
   },
   {
     key: 'growth',
@@ -39,11 +37,9 @@ export const LIVEAGENT_TIERS = [
     annualMonthly: 279,
     popular: true,
     cta: 'Get started',
-    features: [
-      '1,500 chat conversations included, then $0.35/conversation',
-      '1,500 voice channel minutes included, then $0.45/minute',
-      '1,000 avatar minutes included, then $0.65/minute',
-    ],
+    chat: '1,500 chat conversations included, then $0.35/conversation',
+    voice: '1,500 minutes included, then $0.45/minute',
+    avatar: '1,000 minutes included, then $0.65/minute',
   },
   {
     key: 'business',
@@ -52,12 +48,24 @@ export const LIVEAGENT_TIERS = [
     monthly: 874,
     annualMonthly: 699,
     cta: 'Get started',
-    features: [
-      '3,000 chat conversations included, then $0.25/conversation',
-      '3,000 voice channel minutes included, then $0.35/minute',
-      '2,000 avatar minutes included, then $0.50/minute',
-    ],
+    chat: '3,000 chat conversations included, then $0.25/conversation',
+    voice: '3,000 minutes included, then $0.35/minute',
+    avatar: '2,000 minutes included, then $0.50/minute',
   },
 ];
+
+// Custom-priced tier shown below the self-serve cards; its CTA opens the
+// book-a-demo flow rather than the self-serve signup.
+export const LIVEAGENT_ENTERPRISE = {
+  name: 'Enterprise',
+  tagline: 'For large organisations with custom volume, security or deployment needs.',
+  cta: 'Talk to Sales',
+  features: [
+    'Custom chat, voice and avatar volumes',
+    'Volume-based pricing tailored to your usage',
+    'Dedicated onboarding and support',
+    'Security review and tailored contract terms',
+  ],
+};
 
 export const LIVEAGENT_SIGNUP_URL = 'https://liveagent.rikai.tech';

@@ -12,7 +12,7 @@ import VoicePricing from '@/components/pricing/VoicePricing';
 const FAQS = [
   {
     q: 'How does usage-based billing work on LiveAgent?',
-    a: 'Every paid plan includes a monthly allowance across three metered channels — chat conversations, voice minutes, and avatar minutes. Usage beyond your plan’s included amount is billed at that plan’s per-unit overage rate.',
+    a: 'Every paid plan includes a monthly allowance of chat conversations, plus either voice channel minutes or avatar minutes — you choose one of the two, not both. Usage beyond your plan’s included amount is billed at that plan’s per-unit overage rate.',
   },
   {
     q: 'What happens if I hit the limit on the Free Trial?',
@@ -89,7 +89,7 @@ export default function PricingPage() {
             </div>
 
             {product === 'liveagent' ? (
-              <LiveAgentPricing />
+              <LiveAgentPricing onBookDemo={() => openBookDemo('LiveAgent')} />
             ) : (
               <VoicePricing onBookDemo={() => openBookDemo('Voice')} />
             )}
